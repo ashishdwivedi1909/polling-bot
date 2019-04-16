@@ -329,15 +329,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: 'home', component: _toot_toot_component__WEBPACK_IMPORTED_MODULE_3__["TootComponent"] },
-    { path: '', redirectTo: '/home', pathMatch: 'full' }
+    { path: '', component: _toot_toot_component__WEBPACK_IMPORTED_MODULE_3__["TootComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, { onSameUrlNavigation: 'reload', useHash: true })],
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes)],
             exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
         })
     ], AppRoutingModule);
@@ -748,7 +747,7 @@ var allToots = [];
 var clientData = {
     clientId: '15f8126ea25479ac9d2e7535594b364a630cba6a6703a1f8ad4677159a31837e',
     clientSecret: '7962135318fe34020600621b974685a7e520d1a8832ff6e5d0b13b82424d6fe6',
-    redirectUri: 'https://ashishdwivedi1909.github.io/polling-bot/home'
+    redirectUri: 'https://ashishdwivedi1909.github.io/polling-bot'
 };
 var TootComponent = /** @class */ (function () {
     function TootComponent(dialog, route) {
@@ -870,7 +869,7 @@ var TootComponent = /** @class */ (function () {
         }
     };
     TootComponent.prototype.registerApplication = function () {
-        api.registerApplication('polling-app', 'https://ashishdwivedi1909.github.io/polling-bot/home', ['read', 'write', 'follow'], 'https://mastodon.akelius.io', function (data) {
+        api.registerApplication('polling-app', 'https://ashishdwivedi1909.github.io/polling-bot', ['read', 'write', 'follow'], 'https://mastodon.akelius.io', function (data) {
             localStorage.setItem('mastodon_client_id', data['client_id']);
             localStorage.setItem('mastodon_client_secret', data['client_secret']);
             localStorage.setItem('mastodon_client_redirect_uri', data['redirect_uri']);
