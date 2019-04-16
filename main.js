@@ -323,13 +323,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _mastodon_mastodon_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./mastodon/mastodon.component */ "./src/app/mastodon/mastodon.component.ts");
+/* harmony import */ var _toot_toot_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./toot/toot.component */ "./src/app/toot/toot.component.ts");
 
 
 
 
 var routes = [
-    { path: 'home', component: _mastodon_mastodon_component__WEBPACK_IMPORTED_MODULE_3__["MastodonComponent"] },
+    { path: 'home', component: _toot_toot_component__WEBPACK_IMPORTED_MODULE_3__["TootComponent"] },
     { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -337,7 +337,7 @@ var AppRoutingModule = /** @class */ (function () {
     }
     AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes)],
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, { onSameUrlNavigation: 'reload', useHash: true })],
             exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
         })
     ], AppRoutingModule);
@@ -355,7 +355,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\">\n  <mat-toolbar-row>\n    <img\n      class=\"logo\"\n      src=\"../assets/img/akelius_logo.png\">\n    <span>Polling Bot</span>\n    <span class=\"spacer\"></span>\n    <button\n      color=\"basic\"\n      mat-raised-button\n      (click)=\"onStartTimerClick()\">\n      <mat-icon>timer</mat-icon>\n      <span>timer</span>\n    </button>\n  </mat-toolbar-row>\n</mat-toolbar>\n<div\n  class=\"timer-container\"\n  *ngIf=\"timerRunning\">\n  <div class=\"time\">\n    <span [ngClass]=\"{'last-5-seconds': time<5}\">{{ time }}</span>\n  </div>\n</div>\n<div class=\"content-wrapper\">\n  <router-outlet></router-outlet>\n</div>\n"
+module.exports = "<mat-toolbar color=\"primary\">\n  <mat-toolbar-row>\n    <img\n      class=\"logo\"\n      [routerLink]=\"['/home']\"\n      src=\"../assets/img/akelius_logo.png\">\n    <span>Poll Bot</span>\n    <span class=\"spacer\"></span>\n    <button\n      color=\"basic\"\n      mat-raised-button\n      (click)=\"onStartTimerClick()\">\n      <mat-icon>timer</mat-icon>\n      <span>timer</span>\n    </button>\n  </mat-toolbar-row>\n</mat-toolbar>\n<div\n  class=\"timer-container\"\n  *ngIf=\"timerRunning\">\n  <div class=\"time\">\n    <span [ngClass]=\"{'last-5-seconds': time<5}\">{{ time }}</span>\n  </div>\n</div>\n<div class=\"content-wrapper\">\n  <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -366,7 +366,7 @@ module.exports = "<mat-toolbar color=\"primary\">\n  <mat-toolbar-row>\n    <img
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".logo {\n  height: 25px;\n  margin-right: 20px; }\n\nmat-toolbar .spacer {\n  flex: 1 1 auto; }\n\nmat-toolbar button {\n  margin-left: 10px; }\n\n.timer-container {\n  top: 0;\n  z-index: 1;\n  width: 100vw;\n  height: 100vh;\n  display: table;\n  position: fixed;\n  background-color: rgba(210, 210, 210, 0.8); }\n\n.timer-container .time {\n    font-size: 200px;\n    display: table-cell;\n    text-align: center;\n    vertical-align: middle;\n    color: #000000;\n    font-weight: bolder; }\n\n.timer-container .time span.last-5-seconds {\n      -webkit-animation: blink 1s linear;\n              animation: blink 1s linear;\n      -webkit-animation-iteration-count: infinite;\n              animation-iteration-count: infinite; }\n\n.content-wrapper {\n  width: 60vw;\n  padding: 50px;\n  margin-left: 20vw;\n  background-color: white;\n  box-shadow: 2px 4px 4px #d2d2d2; }\n\n@-webkit-keyframes blink {\n  0% {\n    font-size: 200px; }\n  50% {\n    font-size: 150px;\n    color: red; }\n  100% {\n    font-size: 200px; } }\n\n@keyframes blink {\n  0% {\n    font-size: 200px; }\n  50% {\n    font-size: 150px;\n    color: red; }\n  100% {\n    font-size: 200px; } }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hc2hpc2hkd2l2ZWRpL0Rvd25sb2Fkcy9wb2xsaW5nIGFwcC9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9hc2hpc2hkd2l2ZWRpL0Rvd25sb2Fkcy9wb2xsaW5nIGFwcC9zcmMvc2Nzcy92YXJpYWJsZXMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQTtFQUNFLFlBQVk7RUFDWixrQkFBa0IsRUFBQTs7QUFHcEI7RUFHSSxjQUFjLEVBQUE7O0FBSGxCO0VBT0ksaUJBQWlCLEVBQUE7O0FBSXJCO0VBQ0UsTUFBTTtFQUNOLFVBQVU7RUFDVixZQUFZO0VBQ1osYUFBYTtFQUNiLGNBQWM7RUFDZCxlQUFlO0VBQ2YsMENBQTBDLEVBQUE7O0FBUDVDO0lBVUksZ0JBQWdCO0lBQ2hCLG1CQUFtQjtJQUNuQixrQkFBa0I7SUFDbEIsc0JBQXNCO0lBQ3RCLGNDL0JXO0lEZ0NYLG1CQUFtQixFQUFBOztBQWZ2QjtNQW9CUSxrQ0FBMEI7Y0FBMUIsMEJBQTBCO01BQzFCLDJDQUFtQztjQUFuQyxtQ0FBbUMsRUFBQTs7QUFNM0M7RUFDRSxXQUFXO0VBQ1gsYUFBYTtFQUNiLGlCQUFpQjtFQUNqQix1QkFBdUI7RUFDdkIsK0JBQStCLEVBQUE7O0FBR2pDO0VBQ0U7SUFBSyxnQkFBZ0IsRUFBQTtFQUNyQjtJQUFNLGdCQUFnQjtJQUFHLFVBQVUsRUFBQTtFQUNuQztJQUFPLGdCQUFnQixFQUFBLEVBQUE7O0FBSHpCO0VBQ0U7SUFBSyxnQkFBZ0IsRUFBQTtFQUNyQjtJQUFNLGdCQUFnQjtJQUFHLFVBQVUsRUFBQTtFQUNuQztJQUFPLGdCQUFnQixFQUFBLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuXG4ubG9nbyB7XG4gIGhlaWdodDogMjVweDtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufVxuXG5tYXQtdG9vbGJhciB7XG5cbiAgLnNwYWNlciB7XG4gICAgZmxleDogMSAxIGF1dG87XG4gIH1cblxuICBidXR0b24ge1xuICAgIG1hcmdpbi1sZWZ0OiAxMHB4O1xuICB9XG59XG5cbi50aW1lci1jb250YWluZXIge1xuICB0b3A6IDA7XG4gIHotaW5kZXg6IDE7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgZGlzcGxheTogdGFibGU7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMTAsIDIxMCwgMjEwLCAwLjgpO1xuXG4gIC50aW1lIHtcbiAgICBmb250LXNpemU6IDIwMHB4O1xuICAgIGRpc3BsYXk6IHRhYmxlLWNlbGw7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG4gICAgY29sb3I6ICRibGFjaztcbiAgICBmb250LXdlaWdodDogYm9sZGVyO1xuXG4gICAgc3BhbiB7XG5cbiAgICAgICYubGFzdC01LXNlY29uZHMge1xuICAgICAgICBhbmltYXRpb246IGJsaW5rIDFzIGxpbmVhcjtcbiAgICAgICAgYW5pbWF0aW9uLWl0ZXJhdGlvbi1jb3VudDogaW5maW5pdGU7XG4gICAgICB9XG4gICAgfVxuICB9XG59XG5cbi5jb250ZW50LXdyYXBwZXIge1xuICB3aWR0aDogNjB2dztcbiAgcGFkZGluZzogNTBweDtcbiAgbWFyZ2luLWxlZnQ6IDIwdnc7XG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xuICBib3gtc2hhZG93OiAycHggNHB4IDRweCAjZDJkMmQyO1xufVxuXG5Aa2V5ZnJhbWVzIGJsaW5rIHtcbiAgMCUgeyBmb250LXNpemU6IDIwMHB4OyB9XG4gIDUwJSB7IGZvbnQtc2l6ZTogMTUwcHg7ICBjb2xvcjogcmVkOyB9XG4gIDEwMCUgeyBmb250LXNpemU6IDIwMHB4OyB9XG59XG4iLCIkZ3JleTogI2QyZDJkMjtcbiRibGFjazogIzAwMDAwMDtcbiR3aGl0ZTogI2ZmZmZmZjtcbiRwcmltYXJ5OiAjMjg5MWRhO1xuJGRhcmstZ3JleTogI2E1YTVhNTtcbiJdfQ== */"
+module.exports = ".logo {\n  height: 25px;\n  padding: 5px;\n  margin-right: 20px;\n  border-radius: 5px;\n  background-color: #ffffff; }\n\nmat-toolbar .spacer {\n  flex: 1 1 auto; }\n\nmat-toolbar button {\n  margin-left: 10px; }\n\n.timer-container {\n  top: 0;\n  z-index: 1;\n  width: 100vw;\n  height: 100vh;\n  display: table;\n  position: fixed;\n  background-color: rgba(210, 210, 210, 0.8); }\n\n.timer-container .time {\n    font-size: 200px;\n    display: table-cell;\n    text-align: center;\n    vertical-align: middle;\n    color: #000000;\n    font-weight: bolder; }\n\n.timer-container .time span.last-5-seconds {\n      -webkit-animation: blink 1s linear;\n              animation: blink 1s linear;\n      -webkit-animation-iteration-count: infinite;\n              animation-iteration-count: infinite; }\n\n.content-wrapper {\n  width: 60vw;\n  padding: 50px;\n  margin-left: 20vw;\n  background-color: white;\n  box-shadow: 2px 4px 4px #d2d2d2; }\n\n@-webkit-keyframes blink {\n  0% {\n    font-size: 200px; }\n  50% {\n    font-size: 150px;\n    color: red; }\n  100% {\n    font-size: 200px; } }\n\n@keyframes blink {\n  0% {\n    font-size: 200px; }\n  50% {\n    font-size: 150px;\n    color: red; }\n  100% {\n    font-size: 200px; } }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hc2hpc2hkd2l2ZWRpL0Rvd25sb2Fkcy9wb2xsaW5nIGFwcC9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9hc2hpc2hkd2l2ZWRpL0Rvd25sb2Fkcy9wb2xsaW5nIGFwcC9zcmMvc2Nzcy92YXJpYWJsZXMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQTtFQUNFLFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQix5QkNMYSxFQUFBOztBRFFmO0VBR0ksY0FBYyxFQUFBOztBQUhsQjtFQU9JLGlCQUFpQixFQUFBOztBQUlyQjtFQUNFLE1BQU07RUFDTixVQUFVO0VBQ1YsWUFBWTtFQUNaLGFBQWE7RUFDYixjQUFjO0VBQ2QsZUFBZTtFQUNmLDBDQUEwQyxFQUFBOztBQVA1QztJQVVJLGdCQUFnQjtJQUNoQixtQkFBbUI7SUFDbkIsa0JBQWtCO0lBQ2xCLHNCQUFzQjtJQUN0QixjQ2xDVztJRG1DWCxtQkFBbUIsRUFBQTs7QUFmdkI7TUFvQlEsa0NBQTBCO2NBQTFCLDBCQUEwQjtNQUMxQiwyQ0FBbUM7Y0FBbkMsbUNBQW1DLEVBQUE7O0FBTTNDO0VBQ0UsV0FBVztFQUNYLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsdUJBQXVCO0VBQ3ZCLCtCQUErQixFQUFBOztBQUdqQztFQUNFO0lBQUssZ0JBQWdCLEVBQUE7RUFDckI7SUFBTSxnQkFBZ0I7SUFBRyxVQUFVLEVBQUE7RUFDbkM7SUFBTyxnQkFBZ0IsRUFBQSxFQUFBOztBQUh6QjtFQUNFO0lBQUssZ0JBQWdCLEVBQUE7RUFDckI7SUFBTSxnQkFBZ0I7SUFBRyxVQUFVLEVBQUE7RUFDbkM7SUFBTyxnQkFBZ0IsRUFBQSxFQUFBIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCBcIn5zcmMvc2Nzcy92YXJpYWJsZXNcIjtcblxuLmxvZ28ge1xuICBoZWlnaHQ6IDI1cHg7XG4gIHBhZGRpbmc6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIGJhY2tncm91bmQtY29sb3I6ICR3aGl0ZTtcbn1cblxubWF0LXRvb2xiYXIge1xuXG4gIC5zcGFjZXIge1xuICAgIGZsZXg6IDEgMSBhdXRvO1xuICB9XG5cbiAgYnV0dG9uIHtcbiAgICBtYXJnaW4tbGVmdDogMTBweDtcbiAgfVxufVxuXG4udGltZXItY29udGFpbmVyIHtcbiAgdG9wOiAwO1xuICB6LWluZGV4OiAxO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIGRpc3BsYXk6IHRhYmxlO1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjEwLCAyMTAsIDIxMCwgMC44KTtcblxuICAudGltZSB7XG4gICAgZm9udC1zaXplOiAyMDBweDtcbiAgICBkaXNwbGF5OiB0YWJsZS1jZWxsO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xuICAgIGNvbG9yOiAkYmxhY2s7XG4gICAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcblxuICAgIHNwYW4ge1xuXG4gICAgICAmLmxhc3QtNS1zZWNvbmRzIHtcbiAgICAgICAgYW5pbWF0aW9uOiBibGluayAxcyBsaW5lYXI7XG4gICAgICAgIGFuaW1hdGlvbi1pdGVyYXRpb24tY291bnQ6IGluZmluaXRlO1xuICAgICAgfVxuICAgIH1cbiAgfVxufVxuXG4uY29udGVudC13cmFwcGVyIHtcbiAgd2lkdGg6IDYwdnc7XG4gIHBhZGRpbmc6IDUwcHg7XG4gIG1hcmdpbi1sZWZ0OiAyMHZ3O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcbiAgYm94LXNoYWRvdzogMnB4IDRweCA0cHggI2QyZDJkMjtcbn1cblxuQGtleWZyYW1lcyBibGluayB7XG4gIDAlIHsgZm9udC1zaXplOiAyMDBweDsgfVxuICA1MCUgeyBmb250LXNpemU6IDE1MHB4OyAgY29sb3I6IHJlZDsgfVxuICAxMDAlIHsgZm9udC1zaXplOiAyMDBweDsgfVxufVxuIiwiJGdyZXk6ICNkMmQyZDI7XG4kYmxhY2s6ICMwMDAwMDA7XG4kd2hpdGU6ICNmZmZmZmY7XG4kZ3JlZW46ICMwMEZGN0Y7XG4kcHJpbWFyeTogIzI4OTFkYTtcbiRkYXJrLWdyZXk6ICNhNWE1YTU7XG4iXX0= */"
 
 /***/ }),
 
@@ -433,13 +433,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var ng2_charts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ng2-charts */ "./node_modules/ng2-charts/fesm5/ng2-charts.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _mastodon_mastodon_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./mastodon/mastodon.component */ "./src/app/mastodon/mastodon.component.ts");
+/* harmony import */ var _toot_toot_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./toot/toot.module */ "./src/app/toot/toot.module.ts");
+/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _charts_modal_charts_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./charts-modal/charts-modal.component */ "./src/app/charts-modal/charts-modal.component.ts");
+/* harmony import */ var _charts_modal_charts_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./charts-modal/charts-modal.component */ "./src/app/charts-modal/charts-modal.component.ts");
 
 
 
@@ -450,15 +449,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-var MAT_MODULES = [
-    _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatButtonModule"],
-    _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatCardModule"],
-    _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatDialogModule"],
-    _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatIconModule"],
-    _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatInputModule"],
-    _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatToolbarModule"]
-];
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -466,20 +456,19 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-                _mastodon_mastodon_component__WEBPACK_IMPORTED_MODULE_7__["MastodonComponent"],
-                _charts_modal_charts_modal_component__WEBPACK_IMPORTED_MODULE_10__["ChartsModalComponent"]
+                _charts_modal_charts_modal_component__WEBPACK_IMPORTED_MODULE_9__["ChartsModalComponent"]
             ],
             imports: [
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__["BrowserModule"],
-                ng2_charts__WEBPACK_IMPORTED_MODULE_2__["ChartsModule"]
-            ].concat(MAT_MODULES, [
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
+                _toot_toot_module__WEBPACK_IMPORTED_MODULE_4__["TootModule"],
+                ng2_charts__WEBPACK_IMPORTED_MODULE_2__["ChartsModule"],
+                _shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"],
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["BrowserModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"]
-            ]),
+            ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]],
-            entryComponents: [_charts_modal_charts_modal_component__WEBPACK_IMPORTED_MODULE_10__["ChartsModalComponent"]]
+            entryComponents: [_charts_modal_charts_modal_component__WEBPACK_IMPORTED_MODULE_9__["ChartsModalComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -587,47 +576,165 @@ var ChartsModalComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/mastodon/mastodon.component.html":
-/*!**************************************************!*\
-  !*** ./src/app/mastodon/mastodon.component.html ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"header\">\n  <mat-form-field class=\"search-bar\">\n    <input\n      matInput\n      type=\"text\"\n      [formControl]=\"tagSearch\"\n      placeholder=\"search #tag\">\n    <mat-icon\n      matSuffix\n      (click)=\"onCloseClick()\">\n      close\n    </mat-icon>\n  </mat-form-field>\n  <mat-form-field>\n    <input\n      matInput\n      type=\"password\"\n      [formControl]=\"correctAnswer\"\n      placeholder=\"correct answer\">\n    <mat-icon\n      matSuffix\n      (click)=\"onClearCorrectAnswer()\">\n      close\n    </mat-icon>\n  </mat-form-field>\n  <button\n    matSuffix\n    color=\"primary\"\n    mat-raised-button\n    (click)=\"onChartsClick()\">\n    <mat-icon>bar_chart</mat-icon>\n    <span>stats</span>\n  </button>\n</div>\n<div class=\"toot-cards-container\">\n  <mat-card\n    class=\"toot-card\"\n    (click)=\"onTootCardClick(toot)\"\n    *ngFor=\"let toot of toots\">\n    <mat-card-header>\n      <div\n        mat-card-avatar>\n        <img\n          class=\"missing-avatar\"\n          [src]=\"toot?.account?.avatar\">\n      </div>\n      <mat-card-title>\n        {{ toot?.account?.display_name || toot?.account?.acct }}\n      </mat-card-title>\n      <mat-card-subtitle>{{ '@' + toot?.account?.acct }}</mat-card-subtitle>\n    </mat-card-header>\n    <mat-card-content>\n      <p [innerHTML]=\"toot.content\"></p>\n      <div *ngIf=\"toot?.media_attachments.length\">\n        <img\n          class=\"attachment-image\"\n          *ngFor=\"let media of toot?.media_attachments\"\n          [src]=\"media.url\"\n          >\n      </div>\n    </mat-card-content>\n    <mat-card-actions>\n      {{ toot?.account?.created_at | date:'hh:mm, dd MMM, yyyy' }}\n    </mat-card-actions>\n  </mat-card>\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/mastodon/mastodon.component.scss":
-/*!**************************************************!*\
-  !*** ./src/app/mastodon/mastodon.component.scss ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ":host .header {\n  border-bottom: 1px solid #d2d2d2; }\n  :host .header mat-form-field {\n    width: 30%;\n    margin-right: 20px;\n    display: inline-block; }\n  :host .header button {\n    float: right; }\n  :host .toot-cards-container {\n  width: 100%;\n  flex-flow: row wrap;\n  display: inline-flex; }\n  :host .toot-cards-container .toot-card {\n    margin: 20px;\n    flex-basis: 40%;\n    vertical-align: middle; }\n  :host .toot-cards-container .toot-card .missing-avatar {\n      width: 48px;\n      height: 48px;\n      border-radius: 5px; }\n  :host .toot-cards-container .toot-card mat-card-content {\n      max-width: 95%;\n      font-size: 20px;\n      font-style: italic;\n      white-space: normal;\n      word-break: break-all; }\n  :host .toot-cards-container .toot-card mat-card-content ::ng-deep a {\n        color: #2891da;\n        text-decoration: none; }\n  :host .toot-cards-container .toot-card mat-card-content .attachment-image {\n        width: 400px;\n        height: 300px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hc2hpc2hkd2l2ZWRpL0Rvd25sb2Fkcy9wb2xsaW5nIGFwcC9zcmMvYXBwL21hc3RvZG9uL21hc3RvZG9uLmNvbXBvbmVudC5zY3NzIiwiL1VzZXJzL2FzaGlzaGR3aXZlZGkvRG93bmxvYWRzL3BvbGxpbmcgYXBwL3NyYy9zY3NzL3ZhcmlhYmxlcy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBO0VBR0ksZ0NDTFUsRUFBQTtFREVkO0lBTU0sVUFBVTtJQUNWLGtCQUFrQjtJQUNsQixxQkFBcUIsRUFBQTtFQVIzQjtJQVlNLFlBQVksRUFBQTtFQVpsQjtFQWlCSSxXQUFXO0VBQ1gsbUJBQW1CO0VBQ25CLG9CQUFvQixFQUFBO0VBbkJ4QjtJQXNCTSxZQUFZO0lBQ1osZUFBZTtJQUNmLHNCQUFzQixFQUFBO0VBeEI1QjtNQTJCUSxXQUFXO01BQ1gsWUFBWTtNQUNaLGtCQUFrQixFQUFBO0VBN0IxQjtNQWlDUSxjQUFjO01BQ2QsZUFBZTtNQUNmLGtCQUFrQjtNQUNsQixtQkFBbUI7TUFDbkIscUJBQXFCLEVBQUE7RUFyQzdCO1FBMENZLGNDekNLO1FEMENMLHFCQUFxQixFQUFBO0VBM0NqQztRQWdEVSxZQUFZO1FBQ1osYUFBYSxFQUFBIiwiZmlsZSI6InNyYy9hcHAvbWFzdG9kb24vbWFzdG9kb24uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuXG46aG9zdCB7XG5cbiAgLmhlYWRlciB7XG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICRncmV5O1xuXG4gICAgbWF0LWZvcm0tZmllbGQge1xuICAgICAgd2lkdGg6IDMwJTtcbiAgICAgIG1hcmdpbi1yaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICB9XG5cbiAgICBidXR0b24ge1xuICAgICAgZmxvYXQ6IHJpZ2h0O1xuICAgIH1cbiAgfVxuXG4gIC50b290LWNhcmRzLWNvbnRhaW5lciB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgZmxleC1mbG93OiByb3cgd3JhcDtcbiAgICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcblxuICAgIC50b290LWNhcmQge1xuICAgICAgbWFyZ2luOiAyMHB4O1xuICAgICAgZmxleC1iYXNpczogNDAlO1xuICAgICAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcblxuICAgICAgLm1pc3NpbmctYXZhdGFyIHtcbiAgICAgICAgd2lkdGg6IDQ4cHg7XG4gICAgICAgIGhlaWdodDogNDhweDtcbiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgICAgfVxuXG4gICAgICBtYXQtY2FyZC1jb250ZW50IHtcbiAgICAgICAgbWF4LXdpZHRoOiA5NSU7XG4gICAgICAgIGZvbnQtc2l6ZTogMjBweDtcbiAgICAgICAgZm9udC1zdHlsZTogaXRhbGljO1xuICAgICAgICB3aGl0ZS1zcGFjZTogbm9ybWFsO1xuICAgICAgICB3b3JkLWJyZWFrOiBicmVhay1hbGw7XG5cbiAgICAgICAgOjpuZy1kZWVwIHtcblxuICAgICAgICAgIGEge1xuICAgICAgICAgICAgY29sb3I6ICRwcmltYXJ5O1xuICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuXG4gICAgICAgIC5hdHRhY2htZW50LWltYWdlIHtcbiAgICAgICAgICB3aWR0aDogNDAwcHg7XG4gICAgICAgICAgaGVpZ2h0OiAzMDBweDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIiwiJGdyZXk6ICNkMmQyZDI7XG4kYmxhY2s6ICMwMDAwMDA7XG4kd2hpdGU6ICNmZmZmZmY7XG4kcHJpbWFyeTogIzI4OTFkYTtcbiRkYXJrLWdyZXk6ICNhNWE1YTU7XG4iXX0= */"
-
-/***/ }),
-
-/***/ "./src/app/mastodon/mastodon.component.ts":
-/*!************************************************!*\
-  !*** ./src/app/mastodon/mastodon.component.ts ***!
-  \************************************************/
-/*! exports provided: MastodonComponent */
+/***/ "./src/app/shared/shared.module.ts":
+/*!*****************************************!*\
+  !*** ./src/app/shared/shared.module.ts ***!
+  \*****************************************/
+/*! exports provided: SharedModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MastodonComponent", function() { return MastodonComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SharedModule", function() { return SharedModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
+
+
+
+
+var MAT_MODULES = [
+    _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatButtonModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatCardModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatIconModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatInputModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatToolbarModule"]
+];
+var SharedModule = /** @class */ (function () {
+    function SharedModule() {
+    }
+    SharedModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            declarations: [],
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]
+            ].concat(MAT_MODULES, [
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"]
+            ]),
+            exports: MAT_MODULES.concat([
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"]
+            ])
+        })
+    ], SharedModule);
+    return SharedModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/toot/toot-card/toot-card.component.html":
+/*!*********************************************************!*\
+  !*** ./src/app/toot/toot-card/toot-card.component.html ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-card\n        class=\"toot-card\"\n        *ngIf=\"toot?.id\"\n        [ngClass]=\"{ 'tag-active': tagSearch.value }\"\n        (click)=\"onTootCardClick(toot)\">\n  <div class=\"hover-overlay\">\n        <span>\n          Winner\n          <mat-icon>golf_course</mat-icon>\n        </span>\n  </div>\n  <mat-card-header>\n    <div mat-card-avatar>\n      <img\n              class=\"missing-avatar\"\n              [src]=\"toot?.account?.avatar\">\n    </div>\n    <mat-card-title>\n      {{ toot?.account?.display_name || toot?.account?.acct }}\n    </mat-card-title>\n    <mat-card-subtitle>{{ '@' + winnner?.account?.acct }}</mat-card-subtitle>\n  </mat-card-header>\n  <mat-card-content>\n    <p [innerHTML]=\"toot.content\"></p>\n    <div *ngIf=\"toot?.media_attachments.length\">\n      <img\n              class=\"attachment-image\"\n              *ngFor=\"let media of toot?.media_attachments\"\n              [src]=\"media.url\"\n      >\n    </div>\n  </mat-card-content>\n  <mat-card-actions>\n    {{ toot?.created_at | date:'hh:mm:ss, dd MMM, yyyy' }}\n  </mat-card-actions>\n</mat-card>\n"
+
+/***/ }),
+
+/***/ "./src/app/toot/toot-card/toot-card.component.scss":
+/*!*********************************************************!*\
+  !*** ./src/app/toot/toot-card/toot-card.component.scss ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host .toot-card {\n  margin: 20px;\n  flex-basis: 40%;\n  cursor: pointer;\n  vertical-align: middle; }\n  :host .toot-card:hover.tag-active .hover-overlay {\n    top: 0;\n    left: 0;\n    width: 100%;\n    opacity: 0.9;\n    height: 100%;\n    display: table;\n    font-size: 30px;\n    color: #a5a5a5;\n    position: absolute;\n    font-weight: bolder;\n    background-color: #ffffff; }\n  :host .toot-card:hover.tag-active .hover-overlay span {\n      display: table-cell;\n      vertical-align: middle;\n      text-align: center; }\n  :host .toot-card:hover.tag-active .hover-overlay .sub-text {\n      font-size: 10px; }\n  :host .toot-card .hover-overlay {\n    display: none; }\n  :host .toot-card .missing-avatar {\n    width: 48px;\n    height: 48px;\n    border-radius: 5px; }\n  :host .toot-card mat-card-content {\n    max-width: 95%;\n    font-size: 20px;\n    font-style: italic;\n    white-space: normal;\n    word-break: break-all; }\n  :host .toot-card mat-card-content ::ng-deep a {\n      color: #2891da;\n      text-decoration: none; }\n  :host .toot-card mat-card-content .attachment-image {\n      width: 400px;\n      height: 300px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hc2hpc2hkd2l2ZWRpL0Rvd25sb2Fkcy9wb2xsaW5nIGFwcC9zcmMvYXBwL3Rvb3QvdG9vdC1jYXJkL3Rvb3QtY2FyZC5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9hc2hpc2hkd2l2ZWRpL0Rvd25sb2Fkcy9wb2xsaW5nIGFwcC9zcmMvc2Nzcy92YXJpYWJsZXMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQTtFQUVJLFlBQVk7RUFDWixlQUFlO0VBQ2YsZUFBZTtFQUNmLHNCQUFzQixFQUFBO0VBTDFCO0lBWVUsTUFBTTtJQUNOLE9BQU87SUFDUCxXQUFXO0lBQ1gsWUFBWTtJQUNaLFlBQVk7SUFDWixjQUFjO0lBQ2QsZUFBZTtJQUNmLGNDaEJTO0lEaUJULGtCQUFrQjtJQUNsQixtQkFBbUI7SUFDbkIseUJDdEJLLEVBQUE7RURBZjtNQXlCWSxtQkFBbUI7TUFDbkIsc0JBQXNCO01BQ3RCLGtCQUFrQixFQUFBO0VBM0I5QjtNQStCWSxlQUFlLEVBQUE7RUEvQjNCO0lBc0NNLGFBQWEsRUFBQTtFQXRDbkI7SUEwQ00sV0FBVztJQUNYLFlBQVk7SUFDWixrQkFBa0IsRUFBQTtFQTVDeEI7SUFnRE0sY0FBYztJQUNkLGVBQWU7SUFDZixrQkFBa0I7SUFDbEIsbUJBQW1CO0lBQ25CLHFCQUFxQixFQUFBO0VBcEQzQjtNQXlEVSxjQ3ZETztNRHdEUCxxQkFBcUIsRUFBQTtFQTFEL0I7TUErRFEsWUFBWTtNQUNaLGFBQWEsRUFBQSIsImZpbGUiOiJzcmMvYXBwL3Rvb3QvdG9vdC1jYXJkL3Rvb3QtY2FyZC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJ+c3JjL3Njc3MvdmFyaWFibGVzXCI7XG5cbjpob3N0IHtcbiAgLnRvb3QtY2FyZCB7XG4gICAgbWFyZ2luOiAyMHB4O1xuICAgIGZsZXgtYmFzaXM6IDQwJTtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcblxuICAgICY6aG92ZXIge1xuXG4gICAgICAmLnRhZy1hY3RpdmUge1xuXG4gICAgICAgIC5ob3Zlci1vdmVybGF5IHtcbiAgICAgICAgICB0b3A6IDA7XG4gICAgICAgICAgbGVmdDogMDtcbiAgICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgICBvcGFjaXR5OiAwLjk7XG4gICAgICAgICAgaGVpZ2h0OiAxMDAlO1xuICAgICAgICAgIGRpc3BsYXk6IHRhYmxlO1xuICAgICAgICAgIGZvbnQtc2l6ZTogMzBweDtcbiAgICAgICAgICBjb2xvcjogJGRhcmstZ3JleTtcbiAgICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcbiAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAkd2hpdGU7XG5cbiAgICAgICAgICBzcGFuIHtcbiAgICAgICAgICAgIGRpc3BsYXk6IHRhYmxlLWNlbGw7XG4gICAgICAgICAgICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xuICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgICAgICAgIH1cblxuICAgICAgICAgIC5zdWItdGV4dCB7XG4gICAgICAgICAgICBmb250LXNpemU6IDEwcHg7XG4gICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICB9XG4gICAgfVxuXG4gICAgLmhvdmVyLW92ZXJsYXkge1xuICAgICAgZGlzcGxheTogbm9uZTtcbiAgICB9XG5cbiAgICAubWlzc2luZy1hdmF0YXIge1xuICAgICAgd2lkdGg6IDQ4cHg7XG4gICAgICBoZWlnaHQ6IDQ4cHg7XG4gICAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgfVxuXG4gICAgbWF0LWNhcmQtY29udGVudCB7XG4gICAgICBtYXgtd2lkdGg6IDk1JTtcbiAgICAgIGZvbnQtc2l6ZTogMjBweDtcbiAgICAgIGZvbnQtc3R5bGU6IGl0YWxpYztcbiAgICAgIHdoaXRlLXNwYWNlOiBub3JtYWw7XG4gICAgICB3b3JkLWJyZWFrOiBicmVhay1hbGw7XG5cbiAgICAgIDo6bmctZGVlcCB7XG5cbiAgICAgICAgYSB7XG4gICAgICAgICAgY29sb3I6ICRwcmltYXJ5O1xuICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgICAgICAgfVxuICAgICAgfVxuXG4gICAgICAuYXR0YWNobWVudC1pbWFnZSB7XG4gICAgICAgIHdpZHRoOiA0MDBweDtcbiAgICAgICAgaGVpZ2h0OiAzMDBweDtcbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiIsIiRncmV5OiAjZDJkMmQyO1xuJGJsYWNrOiAjMDAwMDAwO1xuJHdoaXRlOiAjZmZmZmZmO1xuJGdyZWVuOiAjMDBGRjdGO1xuJHByaW1hcnk6ICMyODkxZGE7XG4kZGFyay1ncmV5OiAjYTVhNWE1O1xuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/toot/toot-card/toot-card.component.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/toot/toot-card/toot-card.component.ts ***!
+  \*******************************************************/
+/*! exports provided: TootCardComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TootCardComponent", function() { return TootCardComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var TootCardComponent = /** @class */ (function () {
+    function TootCardComponent() {
+    }
+    TootCardComponent.prototype.ngOnInit = function () {
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], TootCardComponent.prototype, "toot", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], TootCardComponent.prototype, "tagSearch", void 0);
+    TootCardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-toot-card',
+            template: __webpack_require__(/*! ./toot-card.component.html */ "./src/app/toot/toot-card/toot-card.component.html"),
+            styles: [__webpack_require__(/*! ./toot-card.component.scss */ "./src/app/toot/toot-card/toot-card.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], TootCardComponent);
+    return TootCardComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/toot/toot.component.html":
+/*!******************************************!*\
+  !*** ./src/app/toot/toot.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"header\">\n  <mat-form-field class=\"search-bar\">\n    <input\n      matInput\n      type=\"text\"\n      [formControl]=\"tagSearch\"\n      placeholder=\"search #tag\">\n    <mat-icon\n      matSuffix\n      (click)=\"onCloseClick()\">\n      close\n    </mat-icon>\n  </mat-form-field>\n  <mat-form-field>\n    <input\n      matInput\n      type=\"password\"\n      [formControl]=\"correctAnswer\"\n      placeholder=\"correct answer\">\n    <mat-icon\n      matSuffix\n      (click)=\"onClearCorrectAnswer()\">\n      close\n    </mat-icon>\n  </mat-form-field>\n  <button\n    matSuffix\n    color=\"primary\"\n    [disabled]=\"!tagSearch.value\"\n    mat-raised-button\n    (click)=\"onChartsClick()\">\n    <mat-icon>bar_chart</mat-icon>\n    <span>stats</span>\n  </button>\n</div>\n<div class=\"toot-cards-container\">\n  <div class=\"winner-card\" *ngIf=\"winners?.length\">\n    <!--<app-toot-card [toot]=\"winner\" [tagSearch]=\"tagSearch\"></app-toot-card>-->\n    <mat-card\n      class=\"toot-card\"\n      *ngFor=\"let winner of winners\"\n      [ngClass]=\"{ 'tag-active': tagSearch?.value }\"\n      (click)=\"onTootCardClick(toot)\">\n      <div class=\"hover-overlay\">\n        <span>\n          Winner\n          <mat-icon>golf_course</mat-icon>\n        </span>\n      </div>\n      <mat-card-header>\n        <div mat-card-avatar>\n          <img\n            class=\"missing-avatar\"\n            [src]=\"winner?.account?.avatar\">\n        </div>\n        <mat-card-title>\n          {{ winner?.account?.display_name || winner?.account?.acct }}\n        </mat-card-title>\n        <mat-card-subtitle>{{ '@' + winner?.account?.acct }}</mat-card-subtitle>\n      </mat-card-header>\n      <mat-card-content>\n        <p [innerHTML]=\"winner.content\"></p>\n        <div *ngIf=\"winner?.media_attachments.length\">\n          <img\n            class=\"attachment-image\"\n            *ngFor=\"let media of winner?.media_attachments\"\n            [src]=\"media.url\"\n          >\n        </div>\n      </mat-card-content>\n      <mat-card-actions>\n        {{ winner?.created_at | date:'hh:mm:ss, dd MMM, yyyy' }}\n      </mat-card-actions>\n    </mat-card>\n  </div>\n  <mat-card\n    class=\"toot-card\"\n    [ngClass]=\"{ 'tag-active': tagSearch.value }\"\n    (click)=\"onTootCardClick(toot)\"\n    *ngFor=\"let toot of toots\">\n    <div class=\"hover-overlay\">\n      <span>Am I the winner?</span>\n    </div>\n    <mat-card-header>\n      <div mat-card-avatar>\n        <img\n          class=\"missing-avatar\"\n          [src]=\"toot?.account?.avatar\">\n      </div>\n      <mat-card-title>\n        {{ toot?.account?.display_name || toot?.account?.acct }}\n      </mat-card-title>\n      <mat-card-subtitle>{{ '@' + toot?.account?.acct }}</mat-card-subtitle>\n    </mat-card-header>\n    <mat-card-content>\n      <p [innerHTML]=\"toot.content\"></p>\n      <div *ngIf=\"toot?.media_attachments.length\">\n        <img\n          class=\"attachment-image\"\n          *ngFor=\"let media of toot?.media_attachments\"\n          [src]=\"media.url\"\n          >\n      </div>\n    </mat-card-content>\n    <mat-card-actions>\n      {{ toot?.created_at | date:'hh:mm:ss, dd MMM, yyyy' }}\n    </mat-card-actions>\n  </mat-card>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/toot/toot.component.scss":
+/*!******************************************!*\
+  !*** ./src/app/toot/toot.component.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host .header {\n  border-bottom: 1px solid #d2d2d2; }\n  :host .header mat-form-field {\n    width: 30%;\n    margin-right: 20px;\n    display: inline-block; }\n  :host .header button {\n    float: right; }\n  :host .toot-cards-container {\n  width: 100%;\n  flex-flow: row wrap;\n  display: inline-flex;\n  justify-content: space-around; }\n  :host .toot-cards-container .winner-card {\n    width: 100%;\n    display: flex;\n    justify-content: space-around; }\n  :host .toot-cards-container .winner-card ::ng-deep .hover-overlay * {\n      color: green; }\n  :host .toot-cards-container .toot-card {\n    margin: 20px;\n    flex-basis: 40%;\n    cursor: pointer;\n    vertical-align: middle; }\n  :host .toot-cards-container .toot-card:hover.tag-active .hover-overlay {\n      top: 0;\n      left: 0;\n      width: 100%;\n      opacity: 0.9;\n      height: 100%;\n      display: table;\n      font-size: 30px;\n      color: #a5a5a5;\n      position: absolute;\n      font-weight: bolder;\n      background-color: #ffffff; }\n  :host .toot-cards-container .toot-card:hover.tag-active .hover-overlay span {\n        display: table-cell;\n        vertical-align: middle;\n        text-align: center; }\n  :host .toot-cards-container .toot-card:hover.tag-active .hover-overlay .sub-text {\n        font-size: 10px; }\n  :host .toot-cards-container .toot-card .hover-overlay {\n      display: none; }\n  :host .toot-cards-container .toot-card .missing-avatar {\n      width: 48px;\n      height: 48px;\n      border-radius: 5px; }\n  :host .toot-cards-container .toot-card mat-card-content {\n      max-width: 95%;\n      font-size: 20px;\n      font-style: italic;\n      white-space: normal;\n      word-break: break-all; }\n  :host .toot-cards-container .toot-card mat-card-content ::ng-deep a {\n        color: #2891da;\n        text-decoration: none; }\n  :host .toot-cards-container .toot-card mat-card-content .attachment-image {\n        width: 400px;\n        height: 300px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hc2hpc2hkd2l2ZWRpL0Rvd25sb2Fkcy9wb2xsaW5nIGFwcC9zcmMvYXBwL3Rvb3QvdG9vdC5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9hc2hpc2hkd2l2ZWRpL0Rvd25sb2Fkcy9wb2xsaW5nIGFwcC9zcmMvc2Nzcy92YXJpYWJsZXMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQTtFQUdJLGdDQ0xVLEVBQUE7RURFZDtJQU1NLFVBQVU7SUFDVixrQkFBa0I7SUFDbEIscUJBQXFCLEVBQUE7RUFSM0I7SUFZTSxZQUFZLEVBQUE7RUFabEI7RUFpQkksV0FBVztFQUNYLG1CQUFtQjtFQUNuQixvQkFBb0I7RUFDcEIsNkJBQTZCLEVBQUE7RUFwQmpDO0lBdUJNLFdBQVc7SUFDWCxhQUFhO0lBQ2IsNkJBQTZCLEVBQUE7RUF6Qm5DO01BZ0NZLFlBQVksRUFBQTtFQWhDeEI7SUF1Q00sWUFBWTtJQUNaLGVBQWU7SUFDZixlQUFlO0lBQ2Ysc0JBQXNCLEVBQUE7RUExQzVCO01BaURZLE1BQU07TUFDTixPQUFPO01BQ1AsV0FBVztNQUNYLFlBQVk7TUFDWixZQUFZO01BQ1osY0FBYztNQUNkLGVBQWU7TUFDZixjQ3JETztNRHNEUCxrQkFBa0I7TUFDbEIsbUJBQW1CO01BQ25CLHlCQzNERyxFQUFBO0VEQWY7UUE4RGMsbUJBQW1CO1FBQ25CLHNCQUFzQjtRQUN0QixrQkFBa0IsRUFBQTtFQWhFaEM7UUFvRWMsZUFBZSxFQUFBO0VBcEU3QjtNQTJFUSxhQUFhLEVBQUE7RUEzRXJCO01BK0VRLFdBQVc7TUFDWCxZQUFZO01BQ1osa0JBQWtCLEVBQUE7RUFqRjFCO01BcUZRLGNBQWM7TUFDZCxlQUFlO01BQ2Ysa0JBQWtCO01BQ2xCLG1CQUFtQjtNQUNuQixxQkFBcUIsRUFBQTtFQXpGN0I7UUE4RlksY0M1Rks7UUQ2RkwscUJBQXFCLEVBQUE7RUEvRmpDO1FBb0dVLFlBQVk7UUFDWixhQUFhLEVBQUEiLCJmaWxlIjoic3JjL2FwcC90b290L3Rvb3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuXG46aG9zdCB7XG5cbiAgLmhlYWRlciB7XG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICRncmV5O1xuXG4gICAgbWF0LWZvcm0tZmllbGQge1xuICAgICAgd2lkdGg6IDMwJTtcbiAgICAgIG1hcmdpbi1yaWdodDogMjBweDtcbiAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICB9XG5cbiAgICBidXR0b24ge1xuICAgICAgZmxvYXQ6IHJpZ2h0O1xuICAgIH1cbiAgfVxuXG4gIC50b290LWNhcmRzLWNvbnRhaW5lciB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgZmxleC1mbG93OiByb3cgd3JhcDtcbiAgICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcblxuICAgIC53aW5uZXItY2FyZCB7XG4gICAgICB3aWR0aDogMTAwJTtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcblxuICAgICAgOjpuZy1kZWVwIHtcblxuICAgICAgICAuaG92ZXItb3ZlcmxheSB7XG5cbiAgICAgICAgICAqIHtcbiAgICAgICAgICAgIGNvbG9yOiBncmVlbjtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG5cbiAgICAudG9vdC1jYXJkIHtcbiAgICAgIG1hcmdpbjogMjBweDtcbiAgICAgIGZsZXgtYmFzaXM6IDQwJTtcbiAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG5cbiAgICAgICY6aG92ZXIge1xuXG4gICAgICAgICYudGFnLWFjdGl2ZSB7XG5cbiAgICAgICAgICAuaG92ZXItb3ZlcmxheSB7XG4gICAgICAgICAgICB0b3A6IDA7XG4gICAgICAgICAgICBsZWZ0OiAwO1xuICAgICAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgICAgICBvcGFjaXR5OiAwLjk7XG4gICAgICAgICAgICBoZWlnaHQ6IDEwMCU7XG4gICAgICAgICAgICBkaXNwbGF5OiB0YWJsZTtcbiAgICAgICAgICAgIGZvbnQtc2l6ZTogMzBweDtcbiAgICAgICAgICAgIGNvbG9yOiAkZGFyay1ncmV5O1xuICAgICAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcbiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICR3aGl0ZTtcblxuICAgICAgICAgICAgc3BhbiB7XG4gICAgICAgICAgICAgIGRpc3BsYXk6IHRhYmxlLWNlbGw7XG4gICAgICAgICAgICAgIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG4gICAgICAgICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgICAgICAgIH1cblxuICAgICAgICAgICAgLnN1Yi10ZXh0IHtcbiAgICAgICAgICAgICAgZm9udC1zaXplOiAxMHB4O1xuICAgICAgICAgICAgfVxuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgfVxuXG4gICAgICAuaG92ZXItb3ZlcmxheSB7XG4gICAgICAgIGRpc3BsYXk6IG5vbmU7XG4gICAgICB9XG5cbiAgICAgIC5taXNzaW5nLWF2YXRhciB7XG4gICAgICAgIHdpZHRoOiA0OHB4O1xuICAgICAgICBoZWlnaHQ6IDQ4cHg7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICAgIH1cblxuICAgICAgbWF0LWNhcmQtY29udGVudCB7XG4gICAgICAgIG1heC13aWR0aDogOTUlO1xuICAgICAgICBmb250LXNpemU6IDIwcHg7XG4gICAgICAgIGZvbnQtc3R5bGU6IGl0YWxpYztcbiAgICAgICAgd2hpdGUtc3BhY2U6IG5vcm1hbDtcbiAgICAgICAgd29yZC1icmVhazogYnJlYWstYWxsO1xuXG4gICAgICAgIDo6bmctZGVlcCB7XG5cbiAgICAgICAgICBhIHtcbiAgICAgICAgICAgIGNvbG9yOiAkcHJpbWFyeTtcbiAgICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cblxuICAgICAgICAuYXR0YWNobWVudC1pbWFnZSB7XG4gICAgICAgICAgd2lkdGg6IDQwMHB4O1xuICAgICAgICAgIGhlaWdodDogMzAwcHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn1cbiIsIiRncmV5OiAjZDJkMmQyO1xuJGJsYWNrOiAjMDAwMDAwO1xuJHdoaXRlOiAjZmZmZmZmO1xuJGdyZWVuOiAjMDBGRjdGO1xuJHByaW1hcnk6ICMyODkxZGE7XG4kZGFyay1ncmV5OiAjYTVhNWE1O1xuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/toot/toot.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/toot/toot.component.ts ***!
+  \****************************************/
+/*! exports provided: TootComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TootComponent", function() { return TootComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _mastodon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../mastodon */ "./src/mastodon.js");
-/* harmony import */ var _mastodon__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_mastodon__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _charts_modal_charts_modal_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../charts-modal/charts-modal.component */ "./src/app/charts-modal/charts-modal.component.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _mastodon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mastodon */ "./src/mastodon.js");
+/* harmony import */ var _mastodon__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_mastodon__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _charts_modal_charts_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../charts-modal/charts-modal.component */ "./src/app/charts-modal/charts-modal.component.ts");
+
 
 
 
@@ -643,49 +750,54 @@ var clientData = {
     clientSecret: '7962135318fe34020600621b974685a7e520d1a8832ff6e5d0b13b82424d6fe6',
     redirectUri: 'https://ashishdwivedi1909.github.io/polling-bot/home'
 };
-var MastodonComponent = /** @class */ (function () {
-    function MastodonComponent(dialog, route) {
+var TootComponent = /** @class */ (function () {
+    function TootComponent(dialog, route) {
         this.dialog = dialog;
         this.route = route;
+        this.winners = [];
         this.toots = [];
         this.lastId = '';
         this.authCode = '';
-        this.tagSearch = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('');
-        this.correctAnswer = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('');
+        this.tagSearch = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"]('');
+        this.correctAnswer = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"]({ value: '', disabled: true });
     }
-    MastodonComponent.prototype.ngOnInit = function () {
+    TootComponent.prototype.ngOnInit = function () {
         var _this = this;
-        api = new _mastodon__WEBPACK_IMPORTED_MODULE_5___default.a({
+        api = new _mastodon__WEBPACK_IMPORTED_MODULE_4___default.a({
             instance: 'https://mastodon.akelius.io',
             api_user_token: 'e434590a5fe744cfbfa97f4059a00e437f7515f1776308bd57c85d89fa05bc44'
         });
         this.checkForAuthCode();
         this.getTimeLines();
         this.tagSearch.valueChanges
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(400))
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["debounceTime"])(400))
             .subscribe(function (value) {
             if (value !== '') {
                 _this.toots = [];
                 _this.lastId = '';
+                _this.correctAnswer.enable({
+                    onlySelf: true,
+                    emitEvent: false
+                });
                 _this.getStatusesWithTag(value);
             }
             else {
-                _this.getTimeLines();
+                _this.onCloseClick();
             }
         });
         this.correctAnswer.valueChanges
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(400))
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["debounceTime"])(400))
             .subscribe(function (value) {
             if (value !== '') {
-                _this.toots = allToots;
-                _this.toots = _this.toots.filter(function (toot) { return toot.content.toLowerCase().replace(/<[^>]*>/g, '').indexOf(value) >= 0; });
+                _this.toots = [].concat(allToots).filter(function (toot) { return toot.content.toLowerCase()
+                    .replace(/<[^>]*>/g, '').indexOf(value.toLowerCase()) >= 0; });
             }
             else {
-                _this.getTimeLines();
+                _this.onClearCorrectAnswer();
             }
         });
     };
-    MastodonComponent.prototype.getStatusesWithTag = function (tag) {
+    TootComponent.prototype.getStatusesWithTag = function (tag) {
         var _this = this;
         api.get('timelines/tag/' + tag, {
             limit: 40,
@@ -693,43 +805,62 @@ var MastodonComponent = /** @class */ (function () {
         }, function (data) {
             _this.toots = _this.toots.concat(data);
             allToots = _this.toots;
-            _this.lastId = data[data.length - 1].id;
-            if ((data.length > 1) && (data.length === 40)) {
+            _this.lastId = data.length ? data[data.length - 1].id : '';
+            if (data.length && (data.length === 40)) {
                 _this.getStatusesWithTag(tag);
+            }
+            else {
+                _this.toots = _this.toots.reverse();
             }
         });
     };
-    MastodonComponent.prototype.getTimeLines = function (id) {
+    TootComponent.prototype.getTimeLines = function (id) {
         var _this = this;
         api.get('timelines/public?local=true', { id: id, limit: 40 }, function (data) {
-            _this.toots = data;
+            _this.toots = data.reverse();
             allToots = _this.toots;
         });
     };
-    MastodonComponent.prototype.onTootCardClick = function (toot) {
-        api.post("statuses/" + toot.id + "/reblog");
+    TootComponent.prototype.onTootCardClick = function (toot) {
+        var _this = this;
+        if (this.tagSearch.value) {
+            api.post("statuses/" + toot.id + "/reblog", function () {
+                if (Object(lodash__WEBPACK_IMPORTED_MODULE_3__["findIndex"])(_this.winners, { id: toot.id }) < 0) {
+                    _this.winners.push(toot);
+                }
+                // this.toots.slice(findIndex(this.toots, {id: toot.id}), 1);
+            });
+        }
     };
-    MastodonComponent.prototype.onCloseClick = function () {
+    TootComponent.prototype.onCloseClick = function () {
         this.tagSearch.setValue('', {
             onlySelf: true,
             emitEvent: false
         });
-        this.getTimeLines();
-    };
-    MastodonComponent.prototype.onClearCorrectAnswer = function () {
-        this.correctAnswer.setValue('', {
+        this.winners = [];
+        this.onClearCorrectAnswer();
+        this.correctAnswer.disable({
             onlySelf: true,
             emitEvent: false
         });
         this.getTimeLines();
     };
-    MastodonComponent.prototype.onChartsClick = function () {
-        this.modalRef = this.dialog.open(_charts_modal_charts_modal_component__WEBPACK_IMPORTED_MODULE_6__["ChartsModalComponent"], {
+    TootComponent.prototype.onClearCorrectAnswer = function () {
+        this.correctAnswer.setValue('', {
+            onlySelf: true,
+            emitEvent: false
+        });
+        this.lastId = '';
+        this.toots = allToots;
+        // this.getStatusesWithTag(this.tagSearch.value)
+    };
+    TootComponent.prototype.onChartsClick = function () {
+        this.modalRef = this.dialog.open(_charts_modal_charts_modal_component__WEBPACK_IMPORTED_MODULE_8__["ChartsModalComponent"], {
             width: '90vw',
             data: this.toots
         });
     };
-    MastodonComponent.prototype.checkForAuthCode = function () {
+    TootComponent.prototype.checkForAuthCode = function () {
         if (!this.route.snapshot.queryParams.code) {
             this.registerApplication();
         }
@@ -738,7 +869,7 @@ var MastodonComponent = /** @class */ (function () {
             localStorage.setItem('authCode', this.authCode);
         }
     };
-    MastodonComponent.prototype.registerApplication = function () {
+    TootComponent.prototype.registerApplication = function () {
         api.registerApplication('polling-app', 'https://ashishdwivedi1909.github.io/polling-bot/home', ['read', 'write', 'follow'], 'https://mastodon.akelius.io', function (data) {
             localStorage.setItem('mastodon_client_id', data['client_id']);
             localStorage.setItem('mastodon_client_secret', data['client_secret']);
@@ -746,23 +877,23 @@ var MastodonComponent = /** @class */ (function () {
             window.location.href = api.generateAuthLink(data['client_id'], data['redirect_uri'], 'code', ['read', 'write', 'follow']);
         });
     };
-    MastodonComponent.prototype.setCode = function (authCode) {
+    TootComponent.prototype.setCode = function (authCode) {
         // if (window.location.href.indexOf('?code=') !== -1) {
         api.getAccessTokenFromAuthCode(clientData.clientId, clientData.clientSecret, clientData.redirectUri, authCode, function (data) {
             console.log(data);
             // api.setConfig('api_user_token', tokenvar);
         });
     };
-    MastodonComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    TootComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-mastodon',
-            template: __webpack_require__(/*! ./mastodon.component.html */ "./src/app/mastodon/mastodon.component.html"),
-            styles: [__webpack_require__(/*! ./mastodon.component.scss */ "./src/app/mastodon/mastodon.component.scss")]
+            selector: 'app-toot',
+            template: __webpack_require__(/*! ./toot.component.html */ "./src/app/toot/toot.component.html"),
+            styles: [__webpack_require__(/*! ./toot.component.scss */ "./src/app/toot/toot.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_7__["MatDialog"],
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_6__["MatDialog"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
-    ], MastodonComponent);
-    return MastodonComponent;
+    ], TootComponent);
+    return TootComponent;
 }());
 
 // postStatus(): void {
@@ -806,6 +937,50 @@ var MastodonComponent = /** @class */ (function () {
 // BASIC REST FUNCTIONS
 // you can use every api endpoint from https://github.com/tootsuite/documentation/blob/master/Using-the-API/API.md
 //
+
+
+/***/ }),
+
+/***/ "./src/app/toot/toot.module.ts":
+/*!*************************************!*\
+  !*** ./src/app/toot/toot.module.ts ***!
+  \*************************************/
+/*! exports provided: TootModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TootModule", function() { return TootModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _toot_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./toot.component */ "./src/app/toot/toot.component.ts");
+/* harmony import */ var _toot_card_toot_card_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./toot-card/toot-card.component */ "./src/app/toot/toot-card/toot-card.component.ts");
+/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
+
+
+
+
+
+
+var TootModule = /** @class */ (function () {
+    function TootModule() {
+    }
+    TootModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            declarations: [
+                _toot_component__WEBPACK_IMPORTED_MODULE_3__["TootComponent"],
+                _toot_card_toot_card_component__WEBPACK_IMPORTED_MODULE_4__["TootCardComponent"]
+            ],
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]
+            ]
+        })
+    ], TootModule);
+    return TootModule;
+}());
+
 
 
 /***/ }),
