@@ -324,12 +324,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _toot_toot_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./toot/toot.component */ "./src/app/toot/toot.component.ts");
+/* harmony import */ var _user_stats_user_stats_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-stats/user-stats.component */ "./src/app/user-stats/user-stats.component.ts");
+
 
 
 
 
 var routes = [
-    { path: '', component: _toot_toot_component__WEBPACK_IMPORTED_MODULE_3__["TootComponent"] }
+    { path: '', component: _toot_toot_component__WEBPACK_IMPORTED_MODULE_3__["TootComponent"] },
+    { path: 'user-stats', component: _user_stats_user_stats_component__WEBPACK_IMPORTED_MODULE_4__["UserStatsComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -354,7 +357,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\">\n  <mat-toolbar-row>\n    <img\n      class=\"logo\"\n      [routerLink]=\"['/home']\"\n      src=\"../assets/img/akelius_logo.png\">\n    <span>Poll Bot</span>\n    <span class=\"spacer\"></span>\n    <button\n      mat-icon-button\n      (click)=\"onAddTimeClick(false)\">\n      <mat-icon>remove_circle_outline</mat-icon>\n    </button>\n    <button\n      color=\"basic\"\n      mat-raised-button\n      (click)=\"onStartTimerClick()\">\n      <mat-icon>timer</mat-icon>\n      <span>{{ time }}s timer</span>\n    </button>\n    <button\n      mat-icon-button\n      (click)=\"onAddTimeClick(true)\">\n      <mat-icon>add_circle_outline</mat-icon>\n    </button>\n  </mat-toolbar-row>\n</mat-toolbar>\n<div\n  class=\"timer-container\"\n  *ngIf=\"timerRunning\">\n  <div class=\"time\">\n    <span [ngClass]=\"{'last-5-seconds': time < 5}\">{{ time }}</span>\n  </div>\n</div>\n<div class=\"content-wrapper\">\n  <router-outlet></router-outlet>\n</div>\n"
+module.exports = "<mat-toolbar color=\"primary\">\n  <mat-toolbar-row>\n    <img\n      class=\"logo\"\n      [routerLink]=\"['/']\"\n      src=\"../assets/img/akelius_logo.png\">\n    <span>poll bot</span>\n    <div class=\"router-buttons\">\n      <button\n        mat-button\n        [routerLink]=\"['/']\">\n        <mat-icon>question_answer</mat-icon>\n        quiz\n      </button>\n      <button\n        mat-button\n        [routerLink]=\"['/user-stats']\">\n        <mat-icon>dashboard</mat-icon>\n        leader board\n      </button>\n    </div>\n    <span class=\"spacer\"></span>\n    <button\n      mat-icon-button\n      (click)=\"onAddTimeClick(false)\">\n      <mat-icon>remove_circle_outline</mat-icon>\n    </button>\n    <button\n      color=\"basic\"\n      mat-raised-button\n      (click)=\"onStartTimerClick()\">\n      <mat-icon>timer</mat-icon>\n      <span>{{ time }}s timer</span>\n    </button>\n    <button\n      mat-icon-button\n      (click)=\"onAddTimeClick(true)\">\n      <mat-icon>add_circle_outline</mat-icon>\n    </button>\n  </mat-toolbar-row>\n</mat-toolbar>\n<div\n  class=\"timer-container\"\n  *ngIf=\"timerRunning\">\n  <div class=\"time\">\n    <span [ngClass]=\"{'last-5-seconds': time < 5}\">{{ time }}</span>\n  </div>\n</div>\n<div class=\"content-wrapper\">\n  <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -365,7 +368,7 @@ module.exports = "<mat-toolbar color=\"primary\">\n  <mat-toolbar-row>\n    <img
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".logo {\n  height: 25px;\n  padding: 5px;\n  margin-right: 20px;\n  border-radius: 5px;\n  background-color: #ffffff; }\n\nmat-toolbar .spacer {\n  flex: 1 1 auto; }\n\n.timer-container {\n  top: 0;\n  z-index: 1;\n  width: 100vw;\n  height: 100vh;\n  display: table;\n  position: fixed;\n  background-color: rgba(210, 210, 210, 0.8); }\n\n.timer-container .time {\n    color: #000000;\n    font-size: 200px;\n    text-align: center;\n    font-weight: bolder;\n    display: table-cell;\n    vertical-align: middle; }\n\n.timer-container .time span.last-5-seconds {\n      -webkit-animation: blink 1s linear;\n              animation: blink 1s linear;\n      -webkit-animation-iteration-count: infinite;\n              animation-iteration-count: infinite; }\n\n.content-wrapper {\n  width: 60vw;\n  padding: 50px;\n  margin-left: 20vw;\n  background-color: white;\n  box-shadow: 2px 4px 4px #d2d2d2; }\n\n@-webkit-keyframes blink {\n  0% {\n    font-size: 200px; }\n  50% {\n    font-size: 150px;\n    color: red; }\n  100% {\n    font-size: 200px; } }\n\n@keyframes blink {\n  0% {\n    font-size: 200px; }\n  50% {\n    font-size: 150px;\n    color: red; }\n  100% {\n    font-size: 200px; } }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hc2hpc2hkd2l2ZWRpL0Rvd25sb2Fkcy9wb2xsaW5nIGFwcC9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9hc2hpc2hkd2l2ZWRpL0Rvd25sb2Fkcy9wb2xsaW5nIGFwcC9zcmMvc2Nzcy92YXJpYWJsZXMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQTtFQUNFLFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQix5QkNMYSxFQUFBOztBRFFmO0VBR0ksY0FBYyxFQUFBOztBQUlsQjtFQUNFLE1BQU07RUFDTixVQUFVO0VBQ1YsWUFBWTtFQUNaLGFBQWE7RUFDYixjQUFjO0VBQ2QsZUFBZTtFQUNmLDBDQUEwQyxFQUFBOztBQVA1QztJQVVJLGNDMUJXO0lEMkJYLGdCQUFnQjtJQUNoQixrQkFBa0I7SUFDbEIsbUJBQW1CO0lBQ25CLG1CQUFtQjtJQUNuQixzQkFBc0IsRUFBQTs7QUFmMUI7TUFvQlEsa0NBQTBCO2NBQTFCLDBCQUEwQjtNQUMxQiwyQ0FBbUM7Y0FBbkMsbUNBQW1DLEVBQUE7O0FBTTNDO0VBQ0UsV0FBVztFQUNYLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsdUJBQXVCO0VBQ3ZCLCtCQ2pEWSxFQUFBOztBRG9EZDtFQUNFO0lBQUssZ0JBQWdCLEVBQUE7RUFDckI7SUFBTSxnQkFBZ0I7SUFBRyxVQUFVLEVBQUE7RUFDbkM7SUFBTyxnQkFBZ0IsRUFBQSxFQUFBOztBQUh6QjtFQUNFO0lBQUssZ0JBQWdCLEVBQUE7RUFDckI7SUFBTSxnQkFBZ0I7SUFBRyxVQUFVLEVBQUE7RUFDbkM7SUFBTyxnQkFBZ0IsRUFBQSxFQUFBIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCBcIn5zcmMvc2Nzcy92YXJpYWJsZXNcIjtcblxuLmxvZ28ge1xuICBoZWlnaHQ6IDI1cHg7XG4gIHBhZGRpbmc6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIGJhY2tncm91bmQtY29sb3I6ICR3aGl0ZTtcbn1cblxubWF0LXRvb2xiYXIge1xuXG4gIC5zcGFjZXIge1xuICAgIGZsZXg6IDEgMSBhdXRvO1xuICB9XG59XG5cbi50aW1lci1jb250YWluZXIge1xuICB0b3A6IDA7XG4gIHotaW5kZXg6IDE7XG4gIHdpZHRoOiAxMDB2dztcbiAgaGVpZ2h0OiAxMDB2aDtcbiAgZGlzcGxheTogdGFibGU7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyMTAsIDIxMCwgMjEwLCAwLjgpO1xuXG4gIC50aW1lIHtcbiAgICBjb2xvcjogJGJsYWNrO1xuICAgIGZvbnQtc2l6ZTogMjAwcHg7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIGZvbnQtd2VpZ2h0OiBib2xkZXI7XG4gICAgZGlzcGxheTogdGFibGUtY2VsbDtcbiAgICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xuXG4gICAgc3BhbiB7XG5cbiAgICAgICYubGFzdC01LXNlY29uZHMge1xuICAgICAgICBhbmltYXRpb246IGJsaW5rIDFzIGxpbmVhcjtcbiAgICAgICAgYW5pbWF0aW9uLWl0ZXJhdGlvbi1jb3VudDogaW5maW5pdGU7XG4gICAgICB9XG4gICAgfVxuICB9XG59XG5cbi5jb250ZW50LXdyYXBwZXIge1xuICB3aWR0aDogNjB2dztcbiAgcGFkZGluZzogNTBweDtcbiAgbWFyZ2luLWxlZnQ6IDIwdnc7XG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xuICBib3gtc2hhZG93OiAycHggNHB4IDRweCAkZ3JleTtcbn1cblxuQGtleWZyYW1lcyBibGluayB7XG4gIDAlIHsgZm9udC1zaXplOiAyMDBweDsgfVxuICA1MCUgeyBmb250LXNpemU6IDE1MHB4OyAgY29sb3I6IHJlZDsgfVxuICAxMDAlIHsgZm9udC1zaXplOiAyMDBweDsgfVxufVxuIiwiJGdyZXk6ICNkMmQyZDI7XG4kYmxhY2s6ICMwMDAwMDA7XG4kd2hpdGU6ICNmZmZmZmY7XG4kZ3JlZW46ICMxMTdCNDI7XG4kcHJpbWFyeTogIzI4OTFkYTtcbiRkYXJrLWJsdWU6ICMxNzJCNTM7XG4kZGFyay1ncmV5OiAjYTVhNWE1O1xuIl19 */"
+module.exports = ".logo {\n  height: 25px;\n  padding: 5px;\n  margin-right: 20px;\n  border-radius: 5px;\n  background-color: #ffffff; }\n\nmat-toolbar .router-buttons {\n  margin-left: 50px; }\n\nmat-toolbar .spacer {\n  flex: 1 1 auto; }\n\n.timer-container {\n  top: 0;\n  z-index: 1;\n  width: 100vw;\n  height: 100vh;\n  display: table;\n  position: fixed;\n  background-color: rgba(210, 210, 210, 0.8); }\n\n.timer-container .time {\n    color: #000000;\n    font-size: 200px;\n    text-align: center;\n    font-weight: bolder;\n    display: table-cell;\n    vertical-align: middle; }\n\n.timer-container .time span.last-5-seconds {\n      -webkit-animation: blink 1s linear;\n              animation: blink 1s linear;\n      -webkit-animation-iteration-count: infinite;\n              animation-iteration-count: infinite; }\n\n.content-wrapper {\n  width: 60vw;\n  padding: 50px;\n  margin-left: 20vw;\n  background-color: white;\n  box-shadow: 2px 4px 4px #d2d2d2; }\n\n@-webkit-keyframes blink {\n  0% {\n    font-size: 200px; }\n  50% {\n    font-size: 150px;\n    color: red; }\n  100% {\n    font-size: 200px; } }\n\n@keyframes blink {\n  0% {\n    font-size: 200px; }\n  50% {\n    font-size: 150px;\n    color: red; }\n  100% {\n    font-size: 200px; } }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hc2hpc2hkd2l2ZWRpL0Rvd25sb2Fkcy9wb2xsaW5nIGFwcC9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9hc2hpc2hkd2l2ZWRpL0Rvd25sb2Fkcy9wb2xsaW5nIGFwcC9zcmMvc2Nzcy92YXJpYWJsZXMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQTtFQUNFLFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQix5QkNMYSxFQUFBOztBRFFmO0VBR0ksaUJBQWlCLEVBQUE7O0FBSHJCO0VBT0ksY0FBYyxFQUFBOztBQUlsQjtFQUNFLE1BQU07RUFDTixVQUFVO0VBQ1YsWUFBWTtFQUNaLGFBQWE7RUFDYixjQUFjO0VBQ2QsZUFBZTtFQUNmLDBDQUEwQyxFQUFBOztBQVA1QztJQVVJLGNDOUJXO0lEK0JYLGdCQUFnQjtJQUNoQixrQkFBa0I7SUFDbEIsbUJBQW1CO0lBQ25CLG1CQUFtQjtJQUNuQixzQkFBc0IsRUFBQTs7QUFmMUI7TUFvQlEsa0NBQTBCO2NBQTFCLDBCQUEwQjtNQUMxQiwyQ0FBbUM7Y0FBbkMsbUNBQW1DLEVBQUE7O0FBTTNDO0VBQ0UsV0FBVztFQUNYLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsdUJBQXVCO0VBQ3ZCLCtCQ3JEWSxFQUFBOztBRHdEZDtFQUNFO0lBQUssZ0JBQWdCLEVBQUE7RUFDckI7SUFBTSxnQkFBZ0I7SUFBRyxVQUFVLEVBQUE7RUFDbkM7SUFBTyxnQkFBZ0IsRUFBQSxFQUFBOztBQUh6QjtFQUNFO0lBQUssZ0JBQWdCLEVBQUE7RUFDckI7SUFBTSxnQkFBZ0I7SUFBRyxVQUFVLEVBQUE7RUFDbkM7SUFBTyxnQkFBZ0IsRUFBQSxFQUFBIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCBcIn5zcmMvc2Nzcy92YXJpYWJsZXNcIjtcblxuLmxvZ28ge1xuICBoZWlnaHQ6IDI1cHg7XG4gIHBhZGRpbmc6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIGJhY2tncm91bmQtY29sb3I6ICR3aGl0ZTtcbn1cblxubWF0LXRvb2xiYXIge1xuXG4gIC5yb3V0ZXItYnV0dG9ucyB7XG4gICAgbWFyZ2luLWxlZnQ6IDUwcHg7XG4gIH1cblxuICAuc3BhY2VyIHtcbiAgICBmbGV4OiAxIDEgYXV0bztcbiAgfVxufVxuXG4udGltZXItY29udGFpbmVyIHtcbiAgdG9wOiAwO1xuICB6LWluZGV4OiAxO1xuICB3aWR0aDogMTAwdnc7XG4gIGhlaWdodDogMTAwdmg7XG4gIGRpc3BsYXk6IHRhYmxlO1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjEwLCAyMTAsIDIxMCwgMC44KTtcblxuICAudGltZSB7XG4gICAgY29sb3I6ICRibGFjaztcbiAgICBmb250LXNpemU6IDIwMHB4O1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBmb250LXdlaWdodDogYm9sZGVyO1xuICAgIGRpc3BsYXk6IHRhYmxlLWNlbGw7XG4gICAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcblxuICAgIHNwYW4ge1xuXG4gICAgICAmLmxhc3QtNS1zZWNvbmRzIHtcbiAgICAgICAgYW5pbWF0aW9uOiBibGluayAxcyBsaW5lYXI7XG4gICAgICAgIGFuaW1hdGlvbi1pdGVyYXRpb24tY291bnQ6IGluZmluaXRlO1xuICAgICAgfVxuICAgIH1cbiAgfVxufVxuXG4uY29udGVudC13cmFwcGVyIHtcbiAgd2lkdGg6IDYwdnc7XG4gIHBhZGRpbmc6IDUwcHg7XG4gIG1hcmdpbi1sZWZ0OiAyMHZ3O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcbiAgYm94LXNoYWRvdzogMnB4IDRweCA0cHggJGdyZXk7XG59XG5cbkBrZXlmcmFtZXMgYmxpbmsge1xuICAwJSB7IGZvbnQtc2l6ZTogMjAwcHg7IH1cbiAgNTAlIHsgZm9udC1zaXplOiAxNTBweDsgIGNvbG9yOiByZWQ7IH1cbiAgMTAwJSB7IGZvbnQtc2l6ZTogMjAwcHg7IH1cbn1cbiIsIiRncmV5OiAjZDJkMmQyO1xuJGJsYWNrOiAjMDAwMDAwO1xuJHdoaXRlOiAjZmZmZmZmO1xuJGdyZWVuOiAjMTE3QjQyO1xuJHByaW1hcnk6ICMyODkxZGE7XG4kZGFyay1ibHVlOiAjMTcyQjUzO1xuJGRhcmstZ3JleTogI2E1YTVhNTtcbiJdfQ== */"
 
 /***/ }),
 
@@ -446,8 +449,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shared/shared.module */ "./src/app/shared/shared.module.ts");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _user_stats_user_stats_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./user-stats/user-stats.component */ "./src/app/user-stats/user-stats.component.ts");
 /* harmony import */ var _charts_modal_charts_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./charts-modal/charts-modal.component */ "./src/app/charts-modal/charts-modal.component.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+
 
 
 
@@ -465,6 +470,7 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
+                _user_stats_user_stats_component__WEBPACK_IMPORTED_MODULE_8__["UserStatsComponent"],
                 _charts_modal_charts_modal_component__WEBPACK_IMPORTED_MODULE_9__["ChartsModalComponent"]
             ],
             imports: [
@@ -473,7 +479,7 @@ var AppModule = /** @class */ (function () {
                 _shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"],
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["BrowserModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"]
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_10__["BrowserAnimationsModule"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]],
@@ -592,6 +598,73 @@ var ChartsModalComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/shared/api.service.ts":
+/*!***************************************!*\
+  !*** ./src/app/shared/api.service.ts ***!
+  \***************************************/
+/*! exports provided: ApiService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApiService", function() { return ApiService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./environment */ "./src/app/shared/environment.ts");
+/* harmony import */ var _mastodon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mastodon */ "./src/mastodon.js");
+/* harmony import */ var _mastodon__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_mastodon__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+
+
+var ApiService = /** @class */ (function () {
+    function ApiService(route) {
+        this.route = route;
+        this.api = {};
+        this.api = new _mastodon__WEBPACK_IMPORTED_MODULE_3___default.a({
+            instance: _environment__WEBPACK_IMPORTED_MODULE_2__["environment"].mastodonInstance,
+            api_user_token: 'e434590a5fe744cfbfa97f4059a00e437f7515f1776308bd57c85d89fa05bc44'
+        });
+        this.checkForAuthCode();
+    }
+    ApiService.prototype.checkForAuthCode = function () {
+        if (!this.route.snapshot.queryParams.code && !localStorage.getItem('authCode')) {
+            this.registerApplication();
+        }
+        else {
+            this.authCode = this.route.snapshot.queryParams.code;
+            localStorage.setItem('authCode', this.authCode);
+        }
+    };
+    ApiService.prototype.registerApplication = function () {
+        this.api.registerApplication('polling-bot', _environment__WEBPACK_IMPORTED_MODULE_2__["environment"].siteRoot, ['read', 'write', 'follow'], _environment__WEBPACK_IMPORTED_MODULE_2__["environment"].mastodonInstance, function (data) {
+            localStorage.setItem('mastodon_client_id', data['client_id']);
+            localStorage.setItem('mastodon_client_secret', data['client_secret']);
+            localStorage.setItem('mastodon_client_redirect_uri', data['redirect_uri']);
+            window.location.href = this.api.generateAuthLink(data['client_id'], data['redirect_uri'], 'code', ['read', 'write', 'follow']);
+        });
+    };
+    ApiService.prototype.setCode = function (authCode) {
+        this.api.getAccessTokenFromAuthCode(_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].auth.clientId, _environment__WEBPACK_IMPORTED_MODULE_2__["environment"].auth.clientSecret, _environment__WEBPACK_IMPORTED_MODULE_2__["environment"].auth.redirectUri, authCode, function (data) {
+            console.log(data);
+            // this.api.setConfig('api_user_token', tokenvar);
+        });
+    };
+    ApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
+    ], ApiService);
+    return ApiService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/environment.ts":
 /*!***************************************!*\
   !*** ./src/app/shared/environment.ts ***!
@@ -638,11 +711,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var MAT_MODULES = [
-    _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatButtonModule"],
     _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatCardModule"],
-    _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogModule"],
     _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatIconModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatTableModule"],
     _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatInputModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatButtonModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogModule"],
     _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatToolbarModule"]
 ];
 var SharedModule = /** @class */ (function () {
@@ -739,7 +813,7 @@ var TootCardComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"header\">\n  <mat-form-field class=\"search-bar\">\n    <input\n      matInput\n      type=\"text\"\n      [formControl]=\"tagSearch\"\n      placeholder=\"search #tag\">\n    <mat-icon\n      matSuffix\n      (click)=\"onCloseClick()\">\n      close\n    </mat-icon>\n  </mat-form-field>\n  <mat-form-field>\n    <input\n      matInput\n      type=\"password\"\n      [formControl]=\"correctAnswer\"\n      placeholder=\"correct answer\">\n    <mat-icon\n      matSuffix\n      (click)=\"onClearCorrectAnswer()\">\n      close\n    </mat-icon>\n  </mat-form-field>\n  <button\n    matSuffix\n    color=\"primary\"\n    [disabled]=\"!tagSearch.value\"\n    mat-raised-button\n    (click)=\"onChartsClick()\">\n    <mat-icon>bar_chart</mat-icon>\n    <span>stats</span>\n  </button>\n</div>\n<div class=\"toot-cards-container\">\n  <div class=\"winner-card\" *ngIf=\"winners?.length\">\n    <!--<app-toot-card [toot]=\"winner\" [tagSearch]=\"tagSearch\"></app-toot-card>-->\n    <mat-card\n      class=\"toot-card\"\n      *ngFor=\"let winner of winners\"\n      [ngClass]=\"{ 'tag-active': tagSearch?.value }\"\n      (click)=\"onTootCardClick(winner)\">\n      <div class=\"hover-overlay\">\n        <span>\n          Winner\n          <mat-icon>golf_course</mat-icon>\n        </span>\n      </div>\n      <mat-card-header>\n        <div mat-card-avatar>\n          <img\n            class=\"missing-avatar\"\n            [src]=\"winner?.account?.avatar\">\n        </div>\n        <mat-card-title>\n          {{ winner?.account?.display_name || winner?.account?.acct }}\n        </mat-card-title>\n        <mat-icon>stars</mat-icon>\n        <mat-card-subtitle>{{ '@' + winner?.account?.acct }}</mat-card-subtitle>\n      </mat-card-header>\n      <mat-card-content>\n        <p [innerHTML]=\"winner.content\"></p>\n        <div *ngIf=\"winner?.media_attachments.length\">\n          <img\n            class=\"attachment-image\"\n            *ngFor=\"let media of winner?.media_attachments\"\n            [src]=\"media.url\"\n          >\n        </div>\n      </mat-card-content>\n      <mat-card-actions>\n        {{ winner?.created_at | date:'hh:mm:ss, dd MMM, yyyy' }}\n      </mat-card-actions>\n    </mat-card>\n  </div>\n  <mat-card\n    class=\"toot-card\"\n    [ngClass]=\"{ 'tag-active': tagSearch.value }\"\n    (click)=\"onTootCardClick(toot)\"\n    *ngFor=\"let toot of toots\">\n    <div class=\"hover-overlay\">\n      <span>Am I the winner?</span>\n    </div>\n    <mat-card-header>\n      <div mat-card-avatar>\n        <img\n          class=\"missing-avatar\"\n          [src]=\"toot?.account?.avatar\">\n      </div>\n      <mat-card-title>\n        {{ toot?.account?.display_name || toot?.account?.acct }}\n      </mat-card-title>\n      <mat-card-subtitle>{{ '@' + toot?.account?.acct }}</mat-card-subtitle>\n    </mat-card-header>\n    <mat-card-content>\n      <p [innerHTML]=\"toot.content\"></p>\n      <div *ngIf=\"toot?.media_attachments.length\">\n        <img\n          class=\"attachment-image\"\n          *ngFor=\"let media of toot?.media_attachments\"\n          [src]=\"media.url\"\n          >\n      </div>\n    </mat-card-content>\n    <mat-card-actions>\n      {{ toot?.created_at | date:'hh:mm:ss, dd MMM, yyyy' }}\n    </mat-card-actions>\n  </mat-card>\n</div>\n"
+module.exports = "<div class=\"header\">\n  <mat-form-field class=\"search-bar\">\n    <input\n      matInput\n      type=\"text\"\n      [formControl]=\"tagSearch\"\n      placeholder=\"search #tag\">\n    <mat-icon\n      matSuffix\n      *ngIf=\"tagSearch.value\"\n      (click)=\"onCloseClick()\">\n      close\n    </mat-icon>\n  </mat-form-field>\n  <mat-form-field>\n    <input\n      matInput\n      type=\"password\"\n      [formControl]=\"correctAnswer\"\n      placeholder=\"correct answer\">\n    <mat-icon\n      matSuffix\n      *ngIf=\"correctAnswer.value\"\n      (click)=\"onClearCorrectAnswer()\">\n      close\n    </mat-icon>\n  </mat-form-field>\n  <button\n    matSuffix\n    color=\"primary\"\n    [disabled]=\"!tagSearch.value\"\n    mat-raised-button\n    (click)=\"onChartsClick()\">\n    <mat-icon>bar_chart</mat-icon>\n    <span>stats</span>\n  </button>\n</div>\n<div class=\"toot-cards-container\">\n  <div class=\"winner-card\" *ngIf=\"winners?.length\">\n    <!--<app-toot-card [toot]=\"winner\" [tagSearch]=\"tagSearch\"></app-toot-card>-->\n    <mat-card\n      class=\"toot-card\"\n      *ngFor=\"let winner of winners\"\n      [ngClass]=\"{ 'tag-active': tagSearch?.value }\"\n      (click)=\"onTootCardClick(winner)\">\n      <div class=\"hover-overlay\">\n        <span>\n          Winner\n          <mat-icon>golf_course</mat-icon>\n        </span>\n      </div>\n      <mat-card-header>\n        <div mat-card-avatar>\n          <img\n            class=\"missing-avatar\"\n            [src]=\"winner?.account?.avatar\">\n        </div>\n        <mat-card-title>\n          {{ winner?.account?.display_name || winner?.account?.acct }}\n        </mat-card-title>\n        <mat-icon>stars</mat-icon>\n        <mat-card-subtitle>{{ '@' + winner?.account?.acct }}</mat-card-subtitle>\n      </mat-card-header>\n      <mat-card-content>\n        <p [innerHTML]=\"winner.content\"></p>\n        <div *ngIf=\"winner?.media_attachments.length\">\n          <img\n            class=\"attachment-image\"\n            *ngFor=\"let media of winner?.media_attachments\"\n            [src]=\"media.url\"\n          >\n        </div>\n      </mat-card-content>\n      <mat-card-actions>\n        {{ winner?.created_at | date:'hh:mm:ss, dd MMM, yyyy' }}\n      </mat-card-actions>\n    </mat-card>\n  </div>\n  <mat-card\n    class=\"toot-card\"\n    [ngClass]=\"{ 'tag-active': tagSearch.value }\"\n    (click)=\"onTootCardClick(toot)\"\n    *ngFor=\"let toot of toots\">\n    <div class=\"hover-overlay\">\n      <span>Am I the winner?</span>\n    </div>\n    <mat-card-header>\n      <div mat-card-avatar>\n        <img\n          class=\"missing-avatar\"\n          [src]=\"toot?.account?.avatar\">\n      </div>\n      <mat-card-title>\n        {{ toot?.account?.display_name || toot?.account?.acct }}\n      </mat-card-title>\n      <mat-card-subtitle>{{ '@' + toot?.account?.acct }}</mat-card-subtitle>\n    </mat-card-header>\n    <mat-card-content>\n      <p [innerHTML]=\"toot.content\"></p>\n      <div *ngIf=\"toot?.media_attachments.length\">\n        <img\n          class=\"attachment-image\"\n          *ngFor=\"let media of toot?.media_attachments\"\n          [src]=\"media.url\"\n          >\n      </div>\n    </mat-card-content>\n    <mat-card-actions>\n      {{ toot?.created_at | date:'hh:mm:ss, dd MMM, yyyy' }}\n    </mat-card-actions>\n  </mat-card>\n</div>\n"
 
 /***/ }),
 
@@ -766,49 +840,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TootComponent", function() { return TootComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _mastodon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mastodon */ "./src/mastodon.js");
-/* harmony import */ var _mastodon__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_mastodon__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _charts_modal_charts_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../charts-modal/charts-modal.component */ "./src/app/charts-modal/charts-modal.component.ts");
-/* harmony import */ var _shared_environment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../shared/environment */ "./src/app/shared/environment.ts");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _charts_modal_charts_modal_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../charts-modal/charts-modal.component */ "./src/app/charts-modal/charts-modal.component.ts");
+/* harmony import */ var _shared_api_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../shared/api.service */ "./src/app/shared/api.service.ts");
+
+
+// import { ActivatedRoute } from '@angular/router';
+
+// import MastodonAPI from '../../mastodon';
 
 
 
 
 
-
-
-
-
-
-var api;
+// let api: any;
 var allToots = [];
 var TootComponent = /** @class */ (function () {
-    function TootComponent(dialog, route) {
+    function TootComponent(apiService, dialog) {
+        this.apiService = apiService;
         this.dialog = dialog;
-        this.route = route;
-        this.winners = [];
         this.toots = [];
+        this.winners = [];
         this.lastId = '';
         this.authCode = '';
-        this.tagSearch = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"]('');
-        this.correctAnswer = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"]({ value: '', disabled: true });
+        this.tagSearch = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('');
+        this.correctAnswer = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]({ value: '', disabled: true });
     }
     TootComponent.prototype.ngOnInit = function () {
         var _this = this;
-        api = new _mastodon__WEBPACK_IMPORTED_MODULE_4___default.a({
-            instance: _shared_environment__WEBPACK_IMPORTED_MODULE_9__["environment"].mastodonInstance,
-            api_user_token: 'e434590a5fe744cfbfa97f4059a00e437f7515f1776308bd57c85d89fa05bc44'
-        });
-        this.checkForAuthCode();
+        // api = new MastodonAPI({
+        //   instance: environment.mastodonInstance,
+        //   api_user_token: 'e434590a5fe744cfbfa97f4059a00e437f7515f1776308bd57c85d89fa05bc44'
+        // });
+        // this.checkForAuthCode();
+        this.api = this.apiService.api;
         this.getTimeLines();
         this.tagSearch.valueChanges
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["debounceTime"])(400))
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["debounceTime"])(400))
             .subscribe(function (value) {
             if (value !== '') {
                 _this.toots = [];
@@ -825,7 +897,7 @@ var TootComponent = /** @class */ (function () {
             }
         });
         this.correctAnswer.valueChanges
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["debounceTime"])(400))
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["debounceTime"])(400))
             .subscribe(function (value) {
             if (value !== '') {
                 _this.toots = [].concat(allToots).filter(function (toot) { return toot.content.toLowerCase()
@@ -838,7 +910,7 @@ var TootComponent = /** @class */ (function () {
     };
     TootComponent.prototype.getStatusesWithTag = function (tag) {
         var _this = this;
-        api.get('timelines/tag/' + tag, {
+        this.api.get('timelines/tag/' + tag, {
             limit: 40,
             max_id: this.lastId
         }, function (data) {
@@ -856,7 +928,7 @@ var TootComponent = /** @class */ (function () {
     };
     TootComponent.prototype.getTimeLines = function (id) {
         var _this = this;
-        api.get('timelines/public?local=true', { id: id, limit: 40 }, function (data) {
+        this.api.get('timelines/public?local=true', { id: id, limit: 40 }, function (data) {
             _this.toots = data.reverse();
             allToots = _this.toots;
         });
@@ -864,14 +936,14 @@ var TootComponent = /** @class */ (function () {
     TootComponent.prototype.onTootCardClick = function (toot) {
         var _this = this;
         if (this.tagSearch.value) {
-            if (Object(lodash__WEBPACK_IMPORTED_MODULE_3__["findIndex"])(this.winners, { id: toot.id }) < 0) {
-                api.post("statuses/" + toot.id + "/reblog", function () {
+            if (Object(lodash__WEBPACK_IMPORTED_MODULE_2__["findIndex"])(this.winners, { id: toot.id }) < 0) {
+                this.api.post("statuses/" + toot.id + "/favourite", function () {
                     _this.winners.push(toot);
                 });
             }
             else {
-                api.post("statuses/" + toot.id + "/unreblog", function () {
-                    _this.winners.splice(Object(lodash__WEBPACK_IMPORTED_MODULE_3__["findIndex"])(_this.winners, { id: toot.id }), 1);
+                this.api.post("statuses/" + toot.id + "/unfavourite", function () {
+                    _this.winners.splice(Object(lodash__WEBPACK_IMPORTED_MODULE_2__["findIndex"])(_this.winners, { id: toot.id }), 1);
                 });
             }
         }
@@ -898,37 +970,13 @@ var TootComponent = /** @class */ (function () {
         this.toots = allToots;
     };
     TootComponent.prototype.onChartsClick = function () {
-        this.modalRef = this.dialog.open(_charts_modal_charts_modal_component__WEBPACK_IMPORTED_MODULE_8__["ChartsModalComponent"], {
+        this.modalRef = this.dialog.open(_charts_modal_charts_modal_component__WEBPACK_IMPORTED_MODULE_6__["ChartsModalComponent"], {
             width: '90vw',
             data: this.toots
         });
     };
     TootComponent.prototype.extractWinners = function () {
-        this.winners = this.toots.filter(function (toot) { return toot.reblogged === true; });
-    };
-    TootComponent.prototype.checkForAuthCode = function () {
-        if (!this.route.snapshot.queryParams.code) {
-            this.registerApplication();
-        }
-        else {
-            this.authCode = this.route.snapshot.queryParams.code;
-            localStorage.setItem('authCode', this.authCode);
-        }
-    };
-    TootComponent.prototype.registerApplication = function () {
-        api.registerApplication('polling-bot', _shared_environment__WEBPACK_IMPORTED_MODULE_9__["environment"].siteRoot, ['read', 'write', 'follow'], _shared_environment__WEBPACK_IMPORTED_MODULE_9__["environment"].mastodonInstance, function (data) {
-            localStorage.setItem('mastodon_client_id', data['client_id']);
-            localStorage.setItem('mastodon_client_secret', data['client_secret']);
-            localStorage.setItem('mastodon_client_redirect_uri', data['redirect_uri']);
-            window.location.href = api.generateAuthLink(data['client_id'], data['redirect_uri'], 'code', ['read', 'write', 'follow']);
-        });
-    };
-    TootComponent.prototype.setCode = function (authCode) {
-        // if (window.location.href.indexOf('?code=') !== -1) {
-        api.getAccessTokenFromAuthCode(_shared_environment__WEBPACK_IMPORTED_MODULE_9__["environment"].auth.clientId, _shared_environment__WEBPACK_IMPORTED_MODULE_9__["environment"].auth.clientSecret, _shared_environment__WEBPACK_IMPORTED_MODULE_9__["environment"].auth.redirectUri, authCode, function (data) {
-            console.log(data);
-            // api.setConfig('api_user_token', tokenvar);
-        });
+        this.winners = this.toots.filter(function (toot) { return toot.favourited === true; });
     };
     TootComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -936,8 +984,8 @@ var TootComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./toot.component.html */ "./src/app/toot/toot.component.html"),
             styles: [__webpack_require__(/*! ./toot.component.scss */ "./src/app/toot/toot.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_6__["MatDialog"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_shared_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialog"]])
     ], TootComponent);
     return TootComponent;
 }());
@@ -1025,6 +1073,119 @@ var TootModule = /** @class */ (function () {
         })
     ], TootModule);
     return TootModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/user-stats/user-stats.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/user-stats/user-stats.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<table mat-table [dataSource]=\"winners\" class=\"mat-elevation-z8\">\n\n  <ng-container matColumnDef=\"position\">\n    <th mat-header-cell *matHeaderCellDef> position </th>\n    <td mat-cell *matCellDef=\"let element; let index = index\">\n      {{ element?.position }}\n      <mat-icon *ngIf=\"index === 0\">stars</mat-icon>\n    </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"participant\">\n    <th mat-header-cell *matHeaderCellDef> participant </th>\n    <td mat-cell *matCellDef=\"let element\">\n      <a target=\"_blank\" [href]=\"element?.participant?.url\">\n        <img [src]=\"element?.participant?.avatar\">\n        {{ element?.participant?.display_name }}\n        <span class=\"handle\">@{{ element?.participant?.acct }}</span>\n      </a>\n    </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"winning answers\">\n    <th mat-header-cell *matHeaderCellDef> winning answers </th>\n    <td mat-cell *matCellDef=\"let element\">\n      <button\n        mat-mini-fab\n        color=\"primary\"\n        *ngFor=\"let tag of element?.winningAnswers\">\n        <a\n          target=\"_blank\"\n          [href]=\"tag.url\">{{ tag.name }}</a>\n      </button>\n    </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"points\">\n    <th mat-header-cell *matHeaderCellDef> points </th>\n    <td mat-cell *matCellDef=\"let element\"> {{ element?.points }} </td>\n  </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n</table>\n"
+
+/***/ }),
+
+/***/ "./src/app/user-stats/user-stats.component.scss":
+/*!******************************************************!*\
+  !*** ./src/app/user-stats/user-stats.component.scss ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host table {\n  width: 80%;\n  margin: 0 auto; }\n  :host table tr td {\n    overflow: auto;\n    max-width: 250px;\n    padding-top: 10px;\n    padding-bottom: 10px; }\n  :host table tr td a {\n      text-decoration: none; }\n  :host table tr td a:visited {\n        color: initial; }\n  :host table tr td mat-icon {\n      color: #117B42;\n      vertical-align: middle; }\n  :host table tr td img {\n      width: 50px;\n      height: 50px;\n      border-radius: 5px;\n      vertical-align: middle;\n      margin-right: 5px; }\n  :host table tr td .handle {\n      font-weight: bold;\n      color: #172B53; }\n  :host table tr td button {\n      margin-right: 5px; }\n  :host table tr td button a {\n        color: #ffffff; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hc2hpc2hkd2l2ZWRpL0Rvd25sb2Fkcy9wb2xsaW5nIGFwcC9zcmMvYXBwL3VzZXItc3RhdHMvdXNlci1zdGF0cy5jb21wb25lbnQuc2NzcyIsIi9Vc2Vycy9hc2hpc2hkd2l2ZWRpL0Rvd25sb2Fkcy9wb2xsaW5nIGFwcC9zcmMvc2Nzcy92YXJpYWJsZXMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQTtFQUdJLFVBQVU7RUFDVixjQUFjLEVBQUE7RUFKbEI7SUFTUSxjQUFjO0lBQ2QsZ0JBQWdCO0lBQ2hCLGlCQUFpQjtJQUNqQixvQkFBb0IsRUFBQTtFQVo1QjtNQWVVLHFCQUFxQixFQUFBO0VBZi9CO1FBa0JZLGNBQWMsRUFBQTtFQWxCMUI7TUF1QlUsY0N0Qks7TUR1Qkwsc0JBQXNCLEVBQUE7RUF4QmhDO01BNEJVLFdBQVc7TUFDWCxZQUFZO01BQ1osa0JBQWtCO01BQ2xCLHNCQUFzQjtNQUN0QixpQkFBaUIsRUFBQTtFQWhDM0I7TUFvQ1UsaUJBQWlCO01BQ2pCLGNDbENTLEVBQUE7RURIbkI7TUF5Q1UsaUJBQWlCLEVBQUE7RUF6QzNCO1FBNENZLGNDNUNHLEVBQUEiLCJmaWxlIjoic3JjL2FwcC91c2VyLXN0YXRzL3VzZXItc3RhdHMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwifnNyYy9zY3NzL3ZhcmlhYmxlc1wiO1xuXG46aG9zdCB7XG5cbiAgdGFibGUge1xuICAgIHdpZHRoOiA4MCU7XG4gICAgbWFyZ2luOiAwIGF1dG87XG5cbiAgICB0ciB7XG5cbiAgICAgIHRkIHtcbiAgICAgICAgb3ZlcmZsb3c6IGF1dG87XG4gICAgICAgIG1heC13aWR0aDogMjUwcHg7XG4gICAgICAgIHBhZGRpbmctdG9wOiAxMHB4O1xuICAgICAgICBwYWRkaW5nLWJvdHRvbTogMTBweDtcblxuICAgICAgICBhIHtcbiAgICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG5cbiAgICAgICAgICAmOnZpc2l0ZWQge1xuICAgICAgICAgICAgY29sb3I6IGluaXRpYWw7XG4gICAgICAgICAgfVxuICAgICAgICB9XG5cbiAgICAgICAgbWF0LWljb24ge1xuICAgICAgICAgIGNvbG9yOiAkZ3JlZW47XG4gICAgICAgICAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgICAgICAgfVxuXG4gICAgICAgIGltZyB7XG4gICAgICAgICAgd2lkdGg6IDUwcHg7XG4gICAgICAgICAgaGVpZ2h0OiA1MHB4O1xuICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICAgICAgICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xuICAgICAgICAgIG1hcmdpbi1yaWdodDogNXB4O1xuICAgICAgICB9XG5cbiAgICAgICAgLmhhbmRsZSB7XG4gICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gICAgICAgICAgY29sb3I6ICRkYXJrLWJsdWU7XG4gICAgICAgIH1cblxuICAgICAgICBidXR0b24ge1xuICAgICAgICAgIG1hcmdpbi1yaWdodDogNXB4O1xuXG4gICAgICAgICAgYSB7XG4gICAgICAgICAgICBjb2xvcjogJHdoaXRlO1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIiwiJGdyZXk6ICNkMmQyZDI7XG4kYmxhY2s6ICMwMDAwMDA7XG4kd2hpdGU6ICNmZmZmZmY7XG4kZ3JlZW46ICMxMTdCNDI7XG4kcHJpbWFyeTogIzI4OTFkYTtcbiRkYXJrLWJsdWU6ICMxNzJCNTM7XG4kZGFyay1ncmV5OiAjYTVhNWE1O1xuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/user-stats/user-stats.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/user-stats/user-stats.component.ts ***!
+  \****************************************************/
+/*! exports provided: UserStatsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserStatsComponent", function() { return UserStatsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/api.service */ "./src/app/shared/api.service.ts");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+
+
+
+
+
+var UserStatsComponent = /** @class */ (function () {
+    function UserStatsComponent(apiService) {
+        this.apiService = apiService;
+        this.winners = [];
+        this.displayedColumns = ['position', 'participant', 'points', 'winning answers'];
+    }
+    UserStatsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.api = this.apiService.api;
+        this.getFavouriteToots();
+        this.interValRef = setInterval(function () {
+            _this.getFavouriteToots();
+        }, 5000);
+    };
+    UserStatsComponent.prototype.ngOnDestroy = function () {
+        window.clearInterval(this.interValRef);
+    };
+    UserStatsComponent.prototype.getFavouriteToots = function () {
+        var _this = this;
+        this.api.get('/favourites', function (data, xhr) {
+            _this.winners = [];
+            var responseHeaders = xhr.getAllResponseHeaders();
+            responseHeaders.indexOf('link');
+            data.map(function (toot) {
+                var userIndex = Object(lodash__WEBPACK_IMPORTED_MODULE_3__["findIndex"])(_this.winners, { id: toot.account.id });
+                if (userIndex < 0) {
+                    _this.winners.push({
+                        points: 1,
+                        position: 1,
+                        id: toot.account.id,
+                        participant: toot.account,
+                        winningAnswers: toot.tags
+                    });
+                }
+                else {
+                    _this.winners[userIndex].points++;
+                    _this.winners[userIndex].winningAnswers = _this.winners[userIndex].winningAnswers.concat(toot.tags);
+                }
+                _this.sortWinners();
+                _this.table.renderRows();
+            });
+        });
+    };
+    UserStatsComponent.prototype.sortWinners = function () {
+        this.winners = this.winners.sort(function (first, second) {
+            return second.points - first.points;
+        });
+        this.winners.map(function (winner, index) {
+            winner.position = index + 1;
+        });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTable"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTable"])
+    ], UserStatsComponent.prototype, "table", void 0);
+    UserStatsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-user-stats',
+            template: __webpack_require__(/*! ./user-stats.component.html */ "./src/app/user-stats/user-stats.component.html"),
+            styles: [__webpack_require__(/*! ./user-stats.component.scss */ "./src/app/user-stats/user-stats.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_shared_api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"]])
+    ], UserStatsComponent);
+    return UserStatsComponent;
 }());
 
 
@@ -1123,7 +1284,7 @@ var MastodonAPI = function (config) {
                       ", data: " + (logData ? JSON.stringify(data) : "<skipped>"));
 
             if (typeof callback !== "undefined") {
-                callback(data, textStatus);
+                callback(data, xhr);
             }
         };
     }
